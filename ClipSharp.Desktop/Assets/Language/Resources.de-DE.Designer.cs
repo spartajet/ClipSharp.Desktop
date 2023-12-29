@@ -21,24 +21,24 @@ namespace ClipSharp.Desktop.Assets.Language {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources_de_DE {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resources_de_DE() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClipSharp.Desktop.Assets.Language.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClipSharp.Desktop.Assets.Language.Resources.de-DE", typeof(Resources_de_DE).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -50,7 +50,7 @@ namespace ClipSharp.Desktop.Assets.Language {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -62,61 +62,61 @@ namespace ClipSharp.Desktop.Assets.Language {
         /// <summary>
         ///   Looks up a localized string similar to ClipSharp.
         /// </summary>
-        public static string ClipSharp {
+        internal static string ClipSharp {
             get {
                 return ResourceManager.GetString("ClipSharp", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exit.
+        ///   Looks up a localized string similar to Ausgang.
         /// </summary>
-        public static string Exit {
+        internal static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open Code List.
+        ///   Looks up a localized string similar to Codeliste öffnen.
         /// </summary>
-        public static string OpenCodeList {
+        internal static string OpenCodeList {
             get {
                 return ResourceManager.GetString("OpenCodeList", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open Image List.
+        ///   Looks up a localized string similar to Bildliste öffnen.
         /// </summary>
-        public static string OpenImageList {
+        internal static string OpenImageList {
             get {
                 return ResourceManager.GetString("OpenImageList", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open Main Window.
+        ///   Looks up a localized string similar to Hauptfenster öffnen.
         /// </summary>
-        public static string OpenMainWindow {
+        internal static string OpenMainWindow {
             get {
                 return ResourceManager.GetString("OpenMainWindow", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open Text List.
+        ///   Looks up a localized string similar to Textliste öffnen.
         /// </summary>
-        public static string OpenTextList {
+        internal static string OpenTextList {
             get {
                 return ResourceManager.GetString("OpenTextList", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Setting.
+        ///   Looks up a localized string similar to Einstellung.
         /// </summary>
-        public static string Setting {
+        internal static string Setting {
             get {
                 return ResourceManager.GetString("Setting", resourceCulture);
             }

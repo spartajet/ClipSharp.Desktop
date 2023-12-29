@@ -6,6 +6,10 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <ApplicationIcon>Assets\Icon\windows\AppIcon.ico</ApplicationIcon>
+        <NeutralLanguage>en</NeutralLanguage>
+        <Configurations>Release;Debug</Configurations>
+        <Platforms>x64</Platforms>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,10 +18,22 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Remove="Assets\Language\Resources.de-DE.resx" />
-      <EmbeddedResource Remove="Assets\Language\Resources.resx" />
-      <EmbeddedResource Remove="Assets\Language\Resources.zh-CN.resx" />
-      <EmbeddedResource Remove="Assets\Language\Resources.zh-TW.resx" />
+      <EmbeddedResource Update="Assets\Language\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Assets\Language\Resources.zh-CN.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Assets\Language\Resources.zh-TW.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.zh-TW.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Assets\Language\Resources.de-DE.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.de-DE.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
 
@@ -42,5 +58,29 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       </AvaloniaResource>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Compile Update="Assets\Language\Resources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Assets\Language\Resources.zh-CN.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.zh-CN.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Assets\Language\Resources.zh-TW.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.zh-TW.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Assets\Language\Resources.de-DE.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.de-DE.resx</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>

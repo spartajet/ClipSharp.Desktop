@@ -18,7 +18,7 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         Assets.Language.Resources.Culture = new CultureInfo("zh-CN");
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        if (this.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow
             {
