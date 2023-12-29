@@ -12,7 +12,7 @@ public partial class App : Application
 {
     public override void Initialize()
     {
-        Assets.Language.Resources.Culture = new CultureInfo("zh-Hans");
+        Assets.Language.Resources.Culture = new CultureInfo("en-US");
         AvaloniaXamlLoader.Load(this);
     }
 
