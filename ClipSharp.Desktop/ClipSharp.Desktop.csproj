@@ -17,25 +17,6 @@
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
 
-<!--    <ItemGroup>-->
-<!--      <EmbeddedResource Update="Assets\Language\Resources.resx">-->
-<!--        <Generator>ResXFileCodeGenerator</Generator>-->
-<!--        <LastGenOutput>Resources.Designer.cs</LastGenOutput>-->
-<!--      </EmbeddedResource>-->
-<!--      <EmbeddedResource Update="Assets\Language\Resources.zh-Hans.resx">-->
-<!--        <Generator>ResXFileCodeGenerator</Generator>-->
-<!--        <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>-->
-<!--      </EmbeddedResource>-->
-<!--      <EmbeddedResource Update="Assets\Language\Resources.zh-Hant.resx">-->
-<!--        <Generator>ResXFileCodeGenerator</Generator>-->
-<!--        <LastGenOutput>Resources.zh-TW.Designer.cs</LastGenOutput>-->
-<!--      </EmbeddedResource>-->
-<!--      <EmbeddedResource Update="Assets\Language\Resources.de-DE.resx">-->
-<!--        <Generator>ResXFileCodeGenerator</Generator>-->
-<!--        <LastGenOutput>Resources.de-DE.Designer.cs</LastGenOutput>-->
-<!--      </EmbeddedResource>-->
-<!--    </ItemGroup>-->
-
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.0.6" />
@@ -64,12 +45,4 @@
       </AvaloniaResource>
     </ItemGroup>
 
-
-    <ItemGroup>
-      <Compile Update="Assets\Language\Resources.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.resx</DependentUpon>
-      </Compile>
-    </ItemGroup>
 </Project>
