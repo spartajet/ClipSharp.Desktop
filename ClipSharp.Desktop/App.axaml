@@ -27,7 +27,7 @@
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="{x:Static assets:Resources.Setting}"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
-                        <NativeMenuItem Header="{x:Static assets:Resources.Exit}" Click="NativeMenuItem_OnClick"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.Exit}" Click="ExitMenuItem_OnClick"></NativeMenuItem>
                     </NativeMenu>
                 </TrayIcon.Menu>
             </TrayIcon>

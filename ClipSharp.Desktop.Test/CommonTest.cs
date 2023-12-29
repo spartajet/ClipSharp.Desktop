@@ -15,5 +15,6 @@ public class CommonTest
     public void PathTest()
     {
         this.outputHelper.WriteLine($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}");
+        this.outputHelper.WriteLine(App.ClipSharpFolder);
     }
 }
