@@ -4,8 +4,8 @@
 	<s:String x:Key="/Default/Environment/Hierarchy/Build/SolBuilderDuo/UseMsbuildSolutionBuilder/@EntryValue">No</s:String>
 	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/ShouldRestoreNugetPackages/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ClipSharp_002EDesktop_002FAssets_002FLanguage_002FResources/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ClipSharp_002EDesktop_002FAssets_002FLanguage_002FResources_002Ezh_002DCN/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ClipSharp_002EDesktop_002FAssets_002FLanguage_002FResources_002Ezh_002DTW/@EntryIndexedValue">True</s:Boolean>
+	
+	
 	
 	
 	

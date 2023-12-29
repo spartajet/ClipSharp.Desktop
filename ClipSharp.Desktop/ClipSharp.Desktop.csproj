@@ -22,11 +22,11 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-      <EmbeddedResource Update="Assets\Language\Resources.zh-CN.resx">
+      <EmbeddedResource Update="Assets\Language\Resources.zh-Hans.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-      <EmbeddedResource Update="Assets\Language\Resources.zh-TW.resx">
+      <EmbeddedResource Update="Assets\Language\Resources.zh-Hant.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Resources.zh-TW.Designer.cs</LastGenOutput>
       </EmbeddedResource>
@@ -67,15 +67,15 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Resources.resx</DependentUpon>
       </Compile>
-      <Compile Update="Assets\Language\Resources.zh-CN.Designer.cs">
+      <Compile Update="Assets\Language\Resources.zh-Hans.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.zh-CN.resx</DependentUpon>
+        <DependentUpon>Resources.zh-Hans.resx</DependentUpon>
       </Compile>
-      <Compile Update="Assets\Language\Resources.zh-TW.Designer.cs">
+      <Compile Update="Assets\Language\Resources.zh-Hant.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.zh-TW.resx</DependentUpon>
+        <DependentUpon>Resources.zh-Hant.resx</DependentUpon>
       </Compile>
       <Compile Update="Assets\Language\Resources.de-DE.Designer.cs">
         <DesignTime>True</DesignTime>

@@ -21,24 +21,24 @@ namespace ClipSharp.Desktop.Assets.Language {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources_zh_CN {
+    public class Resources_zh_Hans {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources_zh_CN() {
+        public Resources_zh_Hans() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClipSharp.Desktop.Assets.Language.Resources.zh-CN", typeof(Resources_zh_CN).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClipSharp.Desktop.Assets.Language.Resources.zh-Hans", typeof(Resources_zh_Hans).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -50,7 +50,7 @@ namespace ClipSharp.Desktop.Assets.Language {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -60,18 +60,9 @@ namespace ClipSharp.Desktop.Assets.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ClipSharp.
-        /// </summary>
-        internal static string ClipSharp {
-            get {
-                return ResourceManager.GetString("ClipSharp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 退出.
         /// </summary>
-        internal static string Exit {
+        public static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
             }
@@ -80,7 +71,7 @@ namespace ClipSharp.Desktop.Assets.Language {
         /// <summary>
         ///   Looks up a localized string similar to 打开代码列表.
         /// </summary>
-        internal static string OpenCodeList {
+        public static string OpenCodeList {
             get {
                 return ResourceManager.GetString("OpenCodeList", resourceCulture);
             }
@@ -89,7 +80,7 @@ namespace ClipSharp.Desktop.Assets.Language {
         /// <summary>
         ///   Looks up a localized string similar to 打开图片列表.
         /// </summary>
-        internal static string OpenImageList {
+        public static string OpenImageList {
             get {
                 return ResourceManager.GetString("OpenImageList", resourceCulture);
             }
@@ -98,7 +89,7 @@ namespace ClipSharp.Desktop.Assets.Language {
         /// <summary>
         ///   Looks up a localized string similar to 打开主窗口.
         /// </summary>
-        internal static string OpenMainWindow {
+        public static string OpenMainWindow {
             get {
                 return ResourceManager.GetString("OpenMainWindow", resourceCulture);
             }
@@ -107,7 +98,7 @@ namespace ClipSharp.Desktop.Assets.Language {
         /// <summary>
         ///   Looks up a localized string similar to 打开文本列表.
         /// </summary>
-        internal static string OpenTextList {
+        public static string OpenTextList {
             get {
                 return ResourceManager.GetString("OpenTextList", resourceCulture);
             }
@@ -116,7 +107,7 @@ namespace ClipSharp.Desktop.Assets.Language {
         /// <summary>
         ///   Looks up a localized string similar to 设置.
         /// </summary>
-        internal static string Setting {
+        public static string Setting {
             get {
                 return ResourceManager.GetString("Setting", resourceCulture);
             }
