@@ -71,6 +71,16 @@ public partial class App : Application
         //         DataContext = new MainWindowViewModel(),
         //     };
         // }
+        if (this.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+        {
+            singleView.MainView = new MainWindow
+            {
+                DataContext = new MainWindowViewModel(),
+            };
+        }
+        {
+            
+        }
         Host.StartAsync();
         base.OnFrameworkInitializationCompleted();
     }

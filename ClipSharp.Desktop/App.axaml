@@ -24,7 +24,7 @@
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenTextList}"></NativeMenuItem>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenImageList}"></NativeMenuItem>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenCodeList}"></NativeMenuItem>
-                        <NativeMenuItem Header="{x:Static assets:Resources.OpenCodeList}"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenFileList}"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="{x:Static assets:Resources.Setting}"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
