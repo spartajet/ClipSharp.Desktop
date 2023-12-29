@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="ClipSharp.Desktop.App"
              xmlns:local="using:ClipSharp.Desktop"
+             xmlns:assets="clr-namespace:ClipSharp.Desktop.Assets.Language"
              RequestedThemeVariant="Default">
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -15,7 +16,7 @@
     <TrayIcon.Icons>
         <TrayIcons>
             <TrayIcon Icon="Assets/Icon/windows/AppIcon.ico"
-                      ToolTipText="Avalonia Tray Icon ToolTip">
+                      ToolTipText="ClipSharp">
                 <TrayIcon.Menu>
                     <NativeMenu>
                         <NativeMenuItem Header="Open Main Window"></NativeMenuItem>
@@ -26,7 +27,7 @@
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="Settings"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
-                        <NativeMenuItem Header="Exit" Click="NativeMenuItem_OnClick"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.Exit}" Click="NativeMenuItem_OnClick"></NativeMenuItem>
                     </NativeMenu>
                 </TrayIcon.Menu>
             </TrayIcon>

@@ -13,6 +13,13 @@
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Remove="Assets\Language\Resources.de-DE.resx" />
+      <EmbeddedResource Remove="Assets\Language\Resources.resx" />
+      <EmbeddedResource Remove="Assets\Language\Resources.zh-CN.resx" />
+      <EmbeddedResource Remove="Assets\Language\Resources.zh-TW.resx" />
+    </ItemGroup>
+
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.0.6" />
@@ -22,5 +29,18 @@
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.6" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <AvaloniaResource Update="Assets\Language\Resources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.resx</DependentUpon>
+      </AvaloniaResource>
+      <AvaloniaResource Update="Assets\Language\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </AvaloniaResource>
     </ItemGroup>
 </Project>
