@@ -12,12 +12,13 @@ public partial class App : Application
 {
     public override void Initialize()
     {
+        Assets.Language.Resources.Culture = new CultureInfo("zh-Hans");
         AvaloniaXamlLoader.Load(this);
     }
 
     public override void OnFrameworkInitializationCompleted()
     {
-        Assets.Language.Resources.Culture = new CultureInfo("de-DE");
+        
         if (this.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow

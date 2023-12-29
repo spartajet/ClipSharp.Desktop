@@ -67,20 +67,5 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Resources.resx</DependentUpon>
       </Compile>
-      <Compile Update="Assets\Language\Resources.zh-Hans.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.zh-Hans.resx</DependentUpon>
-      </Compile>
-      <Compile Update="Assets\Language\Resources.zh-Hant.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.zh-Hant.resx</DependentUpon>
-      </Compile>
-      <Compile Update="Assets\Language\Resources.de-DE.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.de-DE.resx</DependentUpon>
-      </Compile>
     </ItemGroup>
 </Project>
