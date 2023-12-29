@@ -71,16 +71,16 @@ public partial class App : Application
         //         DataContext = new MainWindowViewModel(),
         //     };
         // }
-        if (this.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
-        {
-            singleView.MainView = new MainWindow
-            {
-                DataContext = new MainWindowViewModel(),
-            };
-        }
-        {
-            
-        }
+        // if (this.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+        // {
+        //     singleView.MainView = new MainWindow
+        //     {
+        //         DataContext = new MainWindowViewModel(),
+        //     };
+        // }
+        // {
+        //     
+        // }
         Host.StartAsync();
         base.OnFrameworkInitializationCompleted();
     }
@@ -148,5 +148,26 @@ public partial class App : Application
         config.AddRule(LogLevel.Warn, LogLevel.Fatal, errorFile);
         // Apply config           
         LogManager.Configuration = config;
+    }
+
+    private void OpenMainWindowMenuItem_OnClick(object? sender, EventArgs e)
+    {
+        switch (this.ApplicationLifetime)
+        {
+            case IClassicDesktopStyleApplicationLifetime desktop:
+                desktop.MainWindow = new MainWindow
+                {
+                    DataContext = new MainWindowViewModel(),
+                };
+                desktop.MainWindow.Show();
+                break;
+            case ISingleViewApplicationLifetime singleView:
+                singleView.MainView = new MainWindow
+                {
+                    DataContext = new MainWindowViewModel(),
+                };
+                // singleView.MainView.
+                break;
+        }
     }
 }

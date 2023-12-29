@@ -3,6 +3,7 @@
              x:Class="ClipSharp.Desktop.App"
              xmlns:local="using:ClipSharp.Desktop"
              xmlns:assets="clr-namespace:ClipSharp.Desktop.Assets.Language"
+             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              RequestedThemeVariant="Default">
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -11,7 +12,8 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <FluentTheme />
+        <FluentTheme DensityStyle="Compact" />
+        <!-- <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" /> -->
     </Application.Styles>
     <TrayIcon.Icons>
         <TrayIcons>
@@ -19,7 +21,7 @@
                       ToolTipText="ClipSharp">
                 <TrayIcon.Menu>
                     <NativeMenu>
-                        <NativeMenuItem Header="Open Main Window"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenMainWindow}" Click="OpenMainWindowMenuItem_OnClick"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenTextList}"></NativeMenuItem>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenImageList}"></NativeMenuItem>
