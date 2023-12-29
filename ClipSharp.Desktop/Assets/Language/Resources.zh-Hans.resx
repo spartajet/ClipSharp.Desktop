@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:element name="root" msdata:IsDataSet="true">
-
-    </xsd:element>
+    <xsd:element name="root" msdata:IsDataSet="true"></xsd:element>
   </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -23,6 +21,9 @@
   <data name="OpenCodeList" xml:space="preserve">
     <value>打开代码列表</value>
   </data>
+  <data name="OpenFileList" xml:space="preserve">
+    <value>打开文件列表</value>
+  </data>
   <data name="OpenImageList" xml:space="preserve">
     <value>打开图片列表</value>
   </data>
@@ -34,5 +35,8 @@
   </data>
   <data name="Setting" xml:space="preserve">
     <value>设置</value>
+  </data>
+  <data name="WelcometoClipSharp" xml:space="preserve">
+    <value>欢迎来到ClipSharp！</value>
   </data>
 </root>

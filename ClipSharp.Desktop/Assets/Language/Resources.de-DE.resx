@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:element name="root" msdata:IsDataSet="true">
-
-    </xsd:element>
+    <xsd:element name="root" msdata:IsDataSet="true"></xsd:element>
   </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -23,6 +21,9 @@
   <data name="OpenCodeList" xml:space="preserve">
     <value>Codeliste öffnen</value>
   </data>
+  <data name="OpenFileList" xml:space="preserve">
+    <value>Dateiliste öffnen</value>
+  </data>
   <data name="OpenImageList" xml:space="preserve">
     <value>Bildliste öffnen</value>
   </data>
@@ -34,5 +35,8 @@
   </data>
   <data name="Setting" xml:space="preserve">
     <value>Einstellung</value>
+  </data>
+  <data name="WelcometoClipSharp" xml:space="preserve">
+    <value>Willkommen bei ClipSharp!</value>
   </data>
 </root>

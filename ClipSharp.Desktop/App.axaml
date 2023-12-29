@@ -21,9 +21,10 @@
                     <NativeMenu>
                         <NativeMenuItem Header="Open Main Window"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
-                        <NativeMenuItem Header="Open Text List"></NativeMenuItem>
-                        <NativeMenuItem Header="Open Image List"></NativeMenuItem>
-                        <NativeMenuItem Header="Open Code List"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenTextList}"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenImageList}"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenCodeList}"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenCodeList}"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="{x:Static assets:Resources.Setting}"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>

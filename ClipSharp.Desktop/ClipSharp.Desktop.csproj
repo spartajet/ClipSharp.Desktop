@@ -17,24 +17,24 @@
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
 
-    <ItemGroup>
-      <EmbeddedResource Update="Assets\Language\Resources.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Assets\Language\Resources.zh-Hans.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Assets\Language\Resources.zh-Hant.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.zh-TW.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Assets\Language\Resources.de-DE.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.de-DE.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-    </ItemGroup>
+<!--    <ItemGroup>-->
+<!--      <EmbeddedResource Update="Assets\Language\Resources.resx">-->
+<!--        <Generator>ResXFileCodeGenerator</Generator>-->
+<!--        <LastGenOutput>Resources.Designer.cs</LastGenOutput>-->
+<!--      </EmbeddedResource>-->
+<!--      <EmbeddedResource Update="Assets\Language\Resources.zh-Hans.resx">-->
+<!--        <Generator>ResXFileCodeGenerator</Generator>-->
+<!--        <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>-->
+<!--      </EmbeddedResource>-->
+<!--      <EmbeddedResource Update="Assets\Language\Resources.zh-Hant.resx">-->
+<!--        <Generator>ResXFileCodeGenerator</Generator>-->
+<!--        <LastGenOutput>Resources.zh-TW.Designer.cs</LastGenOutput>-->
+<!--      </EmbeddedResource>-->
+<!--      <EmbeddedResource Update="Assets\Language\Resources.de-DE.resx">-->
+<!--        <Generator>ResXFileCodeGenerator</Generator>-->
+<!--        <LastGenOutput>Resources.de-DE.Designer.cs</LastGenOutput>-->
+<!--      </EmbeddedResource>-->
+<!--    </ItemGroup>-->
 
 
     <ItemGroup>
@@ -59,7 +59,7 @@
         <DependentUpon>Resources.resx</DependentUpon>
       </AvaloniaResource>
       <AvaloniaResource Update="Assets\Language\Resources.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
+        <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       </AvaloniaResource>
     </ItemGroup>
