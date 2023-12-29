@@ -2,27 +2,34 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace ClipSharp.Desktop;
 
-public class ApplicationHostService:IHostedService
+public class ApplicationHostService : IHostedService
 {
     private readonly IServiceProvider _serviceProvider;
-    public ApplicationHostService(IServiceProvider serviceProvider)
+
+    private ILogger<ApplicationHostService> logger;
+
+    public ApplicationHostService(IServiceProvider serviceProvider, ILogger<ApplicationHostService> logger)
     {
         this._serviceProvider = serviceProvider;
+        this.logger = logger;
     }
 
     /// <inheritdoc />
     public Task StartAsync(CancellationToken cancellationToken)
     {
+        
+        this.logger.LogInformation("ClipSharp Started.  {Time:u}", DateTimeOffset.Now);
         return Task.CompletedTask;
     }
 
     /// <inheritdoc />
     public Task StopAsync(CancellationToken cancellationToken)
     {
+        this.logger.LogInformation("ClipSharp Stopped.  {Time:u}", DateTimeOffset.Now);
         return Task.CompletedTask;
     }
 }
-
