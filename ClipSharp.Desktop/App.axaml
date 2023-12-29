@@ -21,7 +21,8 @@
                       ToolTipText="ClipSharp">
                 <TrayIcon.Menu>
                     <NativeMenu>
-                        <NativeMenuItem Header="{x:Static assets:Resources.OpenMainWindow}" Click="OpenMainWindowMenuItem_OnClick"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenMainWindow}" Click="OpenMainWindowMenuItem_OnClick" Gesture="Ctrl+Shift+S">
+                        </NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenTextList}"></NativeMenuItem>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenImageList}"></NativeMenuItem>
