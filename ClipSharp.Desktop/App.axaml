@@ -14,18 +14,19 @@
     </Application.Styles>
     <TrayIcon.Icons>
         <TrayIcons>
-            <TrayIcon Icon="/Assets/avalonia-logo.ico"
+            <TrayIcon Icon="Assets/Icon/windows/AppIcon.ico"
                       ToolTipText="Avalonia Tray Icon ToolTip">
                 <TrayIcon.Menu>
                     <NativeMenu>
-                        <NativeMenuItem Header="Settings">
-                            <NativeMenu>
-                                <NativeMenuItem Header="Option 1" />
-                                <NativeMenuItem Header="Option 2" />
-                                <NativeMenuItemSeparator />
-                                <NativeMenuItem Header="Option 3" />
-                            </NativeMenu>
-                        </NativeMenuItem>
+                        <NativeMenuItem Header="Open Main Window"></NativeMenuItem>
+                        <NativeMenuItemSeparator></NativeMenuItemSeparator>
+                        <NativeMenuItem Header="Open Text List"></NativeMenuItem>
+                        <NativeMenuItem Header="Open Image List"></NativeMenuItem>
+                        <NativeMenuItem Header="Open Code List"></NativeMenuItem>
+                        <NativeMenuItemSeparator></NativeMenuItemSeparator>
+                        <NativeMenuItem Header="Settings"></NativeMenuItem>
+                        <NativeMenuItemSeparator></NativeMenuItemSeparator>
+                        <NativeMenuItem Header="Exit" Click="NativeMenuItem_OnClick"></NativeMenuItem>
                     </NativeMenu>
                 </TrayIcon.Menu>
             </TrayIcon>
