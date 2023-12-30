@@ -12,6 +12,12 @@
         <Platforms>x64</Platforms>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <DefineConstants>Windows</DefineConstants>
+<!--        <DefineConstants>MacOS</DefineConstants>-->
+<!--        <DefineConstants>Linux</DefineConstants>-->
+    </PropertyGroup>
+
     <ItemGroup>
         <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />

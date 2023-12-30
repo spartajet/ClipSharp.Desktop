@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using ClipSharp.Desktop.ClipBoard.Windows;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -21,7 +23,7 @@ public class ApplicationHostService : IHostedService
     /// <inheritdoc />
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        
+        bool result = NativeMethods.AddClipboardFormatListener(IntPtr.Zero);
         this.logger.LogInformation("ClipSharp Started.  {Time:u}", DateTimeOffset.Now);
         return Task.CompletedTask;
     }

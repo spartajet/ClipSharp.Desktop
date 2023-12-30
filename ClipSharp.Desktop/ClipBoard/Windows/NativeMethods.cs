@@ -27,8 +27,10 @@ internal static class NativeMethods
     ///     If there are no more clipboard formats to enumerate, the return value is zero. In this case, the GetLastError function returns the value ERROR_SUCCESS.
     ///     This lets you distinguish between function failure and the end of enumeration.
     /// </returns>
-    [DllImport("user32", SetLastError = true)]
+    // [DllImport("user32", SetLastError = true)]
+    [LibraryImport("user32",EntryPoint = "EnumClipboardFormats", SetLastError = true)]
     internal static extern uint EnumClipboardFormats(uint format);
+    
 
     /// <summary>
     /// Determines whether the clipboard contains data in the specified format.
