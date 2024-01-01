@@ -5,6 +5,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.DesignerSupport.Remote.HtmlTransport;
 using Avalonia.Markup.Xaml;
+using ClipSharp.Desktop.ClipBoard;
 using ClipSharp.Desktop.ViewModels;
 using ClipSharp.Desktop.Views;
 using Microsoft.Extensions.Configuration;
@@ -44,6 +45,7 @@ public partial class App : Application
                                                           // App Host
                                                           
                                                           services.AddHostedService<ApplicationHostService>();
+                                                          services.AddHostedService<ClipboardListener>();
                                                           services.AddLogging(loggingBuilder =>
                                                           {
                                                               loggingBuilder.ClearProviders();
