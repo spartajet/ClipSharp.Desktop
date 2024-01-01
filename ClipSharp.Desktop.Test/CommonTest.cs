@@ -1,6 +1,6 @@
 using Xunit.Abstractions;
 
-namespace ClipSharp.Desktop.Test;
+namespace ClipSharp.Core.Test;
 
 public class CommonTest
 {
@@ -15,6 +15,6 @@ public class CommonTest
     public void PathTest()
     {
         this.outputHelper.WriteLine($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}");
-        this.outputHelper.WriteLine(App.ClipSharpFolder);
+        // this.outputHelper.WriteLine(App.ClipSharpFolder);
     }
 }
