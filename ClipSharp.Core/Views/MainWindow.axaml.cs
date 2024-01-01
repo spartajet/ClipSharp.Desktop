@@ -1,7 +1,6 @@
-using System;
 using Avalonia.Controls;
 
-namespace ClipSharp.Desktop.Views;
+namespace ClipSharp.Core.Views;
 
 public partial class MainWindow : Window
 {

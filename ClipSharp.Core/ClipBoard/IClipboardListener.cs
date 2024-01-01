@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ClipSharp.Desktop.ClipBoard;
+namespace ClipSharp.Core.ClipBoard;
 
 public interface IClipboardListener
 {

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using ClipSharp.Desktop.ClipBoard.Windows;
+using ClipSharp.Core.ClipBoard.Windows;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ClipSharp.Desktop;
+namespace ClipSharp.Core;
 
 public class ApplicationHostService : IHostedService
 {

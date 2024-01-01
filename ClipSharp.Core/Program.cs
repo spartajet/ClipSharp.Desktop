@@ -1,9 +1,9 @@
-﻿using Avalonia;
-using Avalonia.ReactiveUI;
-using System;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.ReactiveUI;
 
-namespace ClipSharp.Desktop;
+namespace ClipSharp.Core;
 
 sealed class Program
 {

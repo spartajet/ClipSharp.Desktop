@@ -3,18 +3,11 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using ClipSharp.Desktop.ClipBoard.Windows;
+using Avalonia.Controls;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Tmds.DBus.Protocol;
 
-#if Windows
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Win32.Interop;
-#endif
-
-namespace ClipSharp.Desktop.ClipBoard;
+namespace ClipSharp.Core.ClipBoard;
 
 public class ClipboardListener : IHostedService
 {

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace ClipSharp.Desktop.ClipBoard.Windows;
+namespace ClipSharp.Core.ClipBoard.Windows;
 
 internal static class NativeMethods
 {

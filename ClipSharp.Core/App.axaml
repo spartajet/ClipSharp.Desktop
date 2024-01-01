@@ -1,14 +1,15 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="ClipSharp.Desktop.App"
-             xmlns:local="using:ClipSharp.Desktop"
-             xmlns:assets="clr-namespace:ClipSharp.Desktop.Assets.Language"
+             x:Class="ClipSharp.Core.App"
+             xmlns:local="using:ClipSharp.Core"
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             xmlns:core="clr-namespace:ClipSharp.Core"
+             xmlns:assets="clr-namespace:ClipSharp.Core.Assets.Language"
              RequestedThemeVariant="Default">
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator />
+        <core:ViewLocator />
     </Application.DataTemplates>
 
     <Application.Styles>

@@ -1,4 +1,4 @@
-﻿namespace ClipSharp.Desktop.ViewModels;
+﻿namespace ClipSharp.Core.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {

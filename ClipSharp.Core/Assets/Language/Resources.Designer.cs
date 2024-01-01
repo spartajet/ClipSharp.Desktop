@@ -8,10 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClipSharp.Desktop.Assets.Language {
-    using System;
-    
-    
+namespace ClipSharp.Core.Assets.Language {
     /// <summary>
     ///   一个强类型的资源类，用于查找本地化的字符串等。
     /// </summary>

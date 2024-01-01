@@ -1,6 +1,6 @@
 using Xunit.Abstractions;
 
-namespace ClipSharp.Core.Test;
+namespace ClipSharp.Desktop.Test;
 
 public class CommonTest
 {

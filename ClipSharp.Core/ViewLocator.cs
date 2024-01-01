@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using ClipSharp.Desktop.ViewModels;
+using ClipSharp.Core.ViewModels;
 
-namespace ClipSharp.Desktop;
+namespace ClipSharp.Core;
 
 public class ViewLocator : IDataTemplate
 {

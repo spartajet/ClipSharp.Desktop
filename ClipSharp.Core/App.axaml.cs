@@ -1,26 +1,24 @@
 using System;
-using System.Globalization;
 using System.IO;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.DesignerSupport.Remote.HtmlTransport;
 using Avalonia.Markup.Xaml;
-using ClipSharp.Desktop.ClipBoard;
-using ClipSharp.Desktop.ViewModels;
-using ClipSharp.Desktop.Views;
+using ClipSharp.Core.ClipBoard;
+using ClipSharp.Core.ViewModels;
+using ClipSharp.Core.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Config;
 using NLog.Extensions.Logging;
 using NLog.Targets;
-using Microsoft.Extensions.Logging;
 using LogLevel=NLog.LogLevel;
 
 
 
-namespace ClipSharp.Desktop;
+namespace ClipSharp.Core;
 
 public partial class App : Application
 {
