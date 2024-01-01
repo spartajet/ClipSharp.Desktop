@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ClipSharp.Desktop\ClipSharp.Desktop.csproj" />
+      <ProjectReference Include="..\ClipSharp.Core\ClipSharp.Core.csproj" />
     </ItemGroup>
 
 </Project>

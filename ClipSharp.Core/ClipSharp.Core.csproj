@@ -10,6 +10,7 @@
         <NeutralLanguage>en</NeutralLanguage>
         <Configurations>Release;Debug</Configurations>
         <Platforms>x64</Platforms>
+        <RootNamespace>ClipSharp.Core</RootNamespace>
     </PropertyGroup>
 
     <PropertyGroup>
