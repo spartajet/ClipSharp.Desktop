@@ -87,6 +87,7 @@ public class ClipboardListener : IHostedService
         bool reuslt = AddClipboardFormatListener(h);
 
         this.hook = SetWindowsHookEx(WM_CLIPBOARDUPDATE, this.MessageOperate, h, 0);
+        
         if (this.hook==IntPtr.Zero)
         {
             int error= Marshal.GetLastWin32Error();
