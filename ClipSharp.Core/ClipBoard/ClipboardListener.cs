@@ -3,7 +3,10 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+
+#if WINDOWS
 using System.Windows.Forms;
+#endif
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml.MarkupExtensions;
 using ClipSharp.Core.ClipBoard.Windows;
@@ -70,16 +73,17 @@ public class ClipboardListener : IHostedService
 
     private Task? listenerTask;
     private CancellationTokenSource? listeningCancellationTokenSource;
-    private HookWindows hookWindows;
+
 
 #if WINDOWS
+    private HookWindows hookWindows;
     public ClipboardListener(ILogger<ClipboardListener> logger, HookWindows hookWindows)
     {
         this.logger = logger;
         this.hookWindows = hookWindows;
     }
 #else
-     public ClipboardListener(ILogger<ClipboardListener> logger)
+    public ClipboardListener(ILogger<ClipboardListener> logger)
     {
         this.logger = logger;
     }
@@ -90,7 +94,6 @@ public class ClipboardListener : IHostedService
     public Task StartAsync(CancellationToken cancellationToken)
     {
 #if WINDOWS
-
         AddClipboardFormatListener(this.hookWindows.Handle);
         // IntPtr handle = Process.GetCurrentProcess().Handle;
         // Window window = new Window();
@@ -117,11 +120,14 @@ public class ClipboardListener : IHostedService
         // }
 
         return Task.CompletedTask;
+#else
+
+        return Task.CompletedTask;
 #endif
     }
 
-
-    private int MessageOperate(int code, IntPtr wParam, IntPtr lParam)
+#if WINDOWS
+     private int MessageOperate(int code, IntPtr wParam, IntPtr lParam)
     {
         if (code < 0) return CallNextHookEx(IntPtr.Zero, code, wParam, lParam);
         int para = wParam.ToInt32();
@@ -138,6 +144,7 @@ public class ClipboardListener : IHostedService
         return CallNextHookEx(IntPtr.Zero, code, wParam, lParam);
         ;
     }
+#endif
 
 
     /// <inheritdoc />

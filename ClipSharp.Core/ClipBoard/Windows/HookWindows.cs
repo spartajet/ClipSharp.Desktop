@@ -2,7 +2,7 @@
 
 namespace ClipSharp.Core.ClipBoard.Windows;
 
-#if true
+#if WINDOWS
 
 using System.Windows.Forms;
 
