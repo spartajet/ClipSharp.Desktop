@@ -1,13 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <!--        <TargetFramework>net8.0</TargetFramework>-->
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
         <RootNamespace>ClipSharp.Desktop.Test</RootNamespace>
+    </PropertyGroup>
+    
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+        <UseWindowsForms>true</UseWindowsForms>
+        <TargetFramework>net8.0-windows</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <UseWindowsForms>true</UseWindowsForms>
+        <TargetFramework>net8.0-macos</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+        <UseWindowsForms>true</UseWindowsForms>
+        <TargetFramework>net8.0-linux</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,7 +39,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ClipSharp.Core\ClipSharp.Core.csproj" />
+        <ProjectReference Include="..\ClipSharp.Core\ClipSharp.Core.csproj" />
     </ItemGroup>
 
 </Project>

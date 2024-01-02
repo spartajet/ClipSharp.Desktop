@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
+<!--        <TargetFrameworks>net8.0-windows;net8.0-macos;net8.0-linux</TargetFrameworks>-->
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -14,10 +14,26 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <DefineConstants>Windows</DefineConstants>
-<!--        <DefineConstants>MacOS</DefineConstants>-->
-<!--        <DefineConstants>Linux</DefineConstants>-->
+        <!--        <DefineConstants>Windows</DefineConstants>-->
+        <!--        <DefineConstants>MacOS</DefineConstants>-->
+        <!--        <DefineConstants>Linux</DefineConstants>-->
     </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+        <UseWindowsForms>true</UseWindowsForms>
+        <TargetFramework>net8.0-windows</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <UseWindowsForms>true</UseWindowsForms>
+        <TargetFramework>net8.0-macos</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+        <UseWindowsForms>true</UseWindowsForms>
+        <TargetFramework>net8.0-linux</TargetFramework>
+    </PropertyGroup>
+
 
     <ItemGroup>
         <Folder Include="Models\" />
@@ -43,15 +59,15 @@
 
 
     <ItemGroup>
-      <AvaloniaResource Update="Assets\Language\Resources.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.resx</DependentUpon>
-      </AvaloniaResource>
-      <AvaloniaResource Update="Assets\Language\Resources.resx">
-        <Generator>PublicResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      </AvaloniaResource>
+        <AvaloniaResource Update="Assets\Language\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </AvaloniaResource>
+        <AvaloniaResource Update="Assets\Language\Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </AvaloniaResource>
     </ItemGroup>
 
 </Project>

@@ -4,6 +4,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using ClipSharp.Core.ClipBoard;
+using ClipSharp.Core.ClipBoard.Windows;
 using ClipSharp.Core.ViewModels;
 using ClipSharp.Core.Views;
 using Microsoft.Extensions.Configuration;
@@ -44,6 +45,9 @@ public partial class App : Application
                                                           
                                                           services.AddHostedService<ApplicationHostService>();
                                                           services.AddHostedService<ClipboardListener>();
+#if WINDOWS
+                                                          services.AddSingleton<HookWindows>();
+#endif
                                                           services.AddLogging(loggingBuilder =>
                                                           {
                                                               loggingBuilder.ClearProviders();

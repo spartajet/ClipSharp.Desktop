@@ -3,7 +3,10 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Avalonia.Controls;
+using Avalonia.Markup.Xaml.MarkupExtensions;
+using ClipSharp.Core.ClipBoard.Windows;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -11,7 +14,7 @@ namespace ClipSharp.Core.ClipBoard;
 
 public class ClipboardListener : IHostedService
 {
-#if Windows
+#if WINDOWS
     IntPtr _clipboardViewerNext;
     private IntPtr hook = IntPtr.Zero;
 
@@ -67,54 +70,51 @@ public class ClipboardListener : IHostedService
 
     private Task? listenerTask;
     private CancellationTokenSource? listeningCancellationTokenSource;
+    private HookWindows hookWindows;
 
-
-    public ClipboardListener(ILogger<ClipboardListener> logger)
+#if WINDOWS
+    public ClipboardListener(ILogger<ClipboardListener> logger, HookWindows hookWindows)
+    {
+        this.logger = logger;
+        this.hookWindows = hookWindows;
+    }
+#else
+     public ClipboardListener(ILogger<ClipboardListener> logger)
     {
         this.logger = logger;
     }
+#endif
+
 
     /// <inheritdoc />
     public Task StartAsync(CancellationToken cancellationToken)
     {
-#if Windows
+#if WINDOWS
 
-        IntPtr handle = Process.GetCurrentProcess().Handle;
-        Window window = new Window();
-        // this._clipboardViewerNext = SetClipboardViewer(handle);
-        IntPtr h = GetModuleHandle(null);
-        IntPtr h1 = window.TryGetPlatformHandle()?.Handle ?? IntPtr.Zero;
-        bool reuslt = AddClipboardFormatListener(h);
-
-        this.hook = SetWindowsHookEx(WM_CLIPBOARDUPDATE, this.MessageOperate, h, 0);
-        
-        if (this.hook==IntPtr.Zero)
-        {
-            int error= Marshal.GetLastWin32Error();
-            this.logger.LogError("registe clipboard hook error:0x{Error:X}", error);
-        }
-        
-        if (this.hook != IntPtr.Zero)
-        {
-            this.logger.LogInformation("Start Clipboard Listener");
-        }
-        else
-        {
-            this.logger.LogError("Start Clipboard Listener Failed");
-        }
-        // 使用 Windows API 监听剪切板改变事件
-        // AddClipboardFormatListener(handle);
-        // this.listeningCancellationTokenSource = new();
-        // this.listenerTask = new Task(() =>
+        AddClipboardFormatListener(this.hookWindows.Handle);
+        // IntPtr handle = Process.GetCurrentProcess().Handle;
+        // Window window = new Window();
+        // // this._clipboardViewerNext = SetClipboardViewer(handle);
+        // IntPtr h = GetModuleHandle(null);
+        // IntPtr h1 = window.TryGetPlatformHandle()?.Handle ?? IntPtr.Zero;
+        // bool reuslt = AddClipboardFormatListener(h);
+        //
+        // this.hook = SetWindowsHookEx(WM_CLIPBOARDUPDATE, this.MessageOperate, h, 0);
+        //
+        // if (this.hook == IntPtr.Zero)
         // {
-        //     while (!this.listeningCancellationTokenSource.IsCancellationRequested)
-        //     {
-        //       int result=  WaitMessage();
-        //       this.logger.LogInformation("Get Clipboard Update Message");
-        //         
-        //     }
-        // },this.listeningCancellationTokenSource.Token,TaskCreationOptions.LongRunning);
-        // this.listenerTask.Start();
+        //     int error = Marshal.GetLastWin32Error();
+        //     this.logger.LogError("registe clipboard hook error:0x{Error:X}", error);
+        // }
+        //
+        // if (this.hook != IntPtr.Zero)
+        // {
+        //     this.logger.LogInformation("Start Clipboard Listener");
+        // }
+        // else
+        // {
+        //     this.logger.LogError("Start Clipboard Listener Failed");
+        // }
 
         return Task.CompletedTask;
 #endif
@@ -143,26 +143,22 @@ public class ClipboardListener : IHostedService
     /// <inheritdoc />
     public async Task StopAsync(CancellationToken cancellationToken)
     {
-#if Windows
-        IntPtr handle = Process.GetCurrentProcess().Handle;
-        // ChangeClipboardChain(handle, this._clipboardViewerNext);
-        bool result = RemoveClipboardFormatListener(handle);
-        if (this.hook != IntPtr.Zero)
-        {
-            UnhookWindowsHookEx(this.hook);
-            this.logger.LogInformation("Stop Clipboard Listener");
-        }
-
-
-        //
-        // if (this.listeningCancellationTokenSource!=null)
+#if WINDOWS
+        RemoveClipboardFormatListener(this.hookWindows.Handle);
+        // IntPtr handle = Process.GetCurrentProcess().Handle;
+        // // ChangeClipboardChain(handle, this._clipboardViewerNext);
+        // bool result = RemoveClipboardFormatListener(handle);
+        // if (this.hook != IntPtr.Zero)
         // {
-        //     await this.listeningCancellationTokenSource?.CancelAsync();
+        //     UnhookWindowsHookEx(this.hook);
+        //     this.logger.LogInformation("Stop Clipboard Listener");
         // }
+
 
 #endif
     }
-    
+
+
     // private class HookWindow: Window
     // {
     //     public HookWindow()
