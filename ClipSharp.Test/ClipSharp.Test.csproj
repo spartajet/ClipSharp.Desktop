@@ -1,28 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <!--        <TargetFramework>net8.0</TargetFramework>-->
+        <TargetFrameworks>net8.0-macos;net8.0-windows</TargetFrameworks>
+        <UseWindowsForms Condition="'$(TargetFramework)' == 'net8.0-windows'">true</UseWindowsForms>
+        <Platforms Condition="'$(TargetFramework)' == 'net8.0-windows'">x64</Platforms>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
         <RootNamespace>ClipSharp.Desktop.Test</RootNamespace>
-    </PropertyGroup>
-    
-    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
-        <UseWindowsForms>true</UseWindowsForms>
-        <TargetFramework>net8.0-windows</TargetFramework>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
-        <UseWindowsForms>true</UseWindowsForms>
-        <TargetFramework>net8.0-macos</TargetFramework>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
-        <UseWindowsForms>true</UseWindowsForms>
-        <TargetFramework>net8.0-linux</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>

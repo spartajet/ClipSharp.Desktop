@@ -3,15 +3,15 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-
-#if WINDOWS
-using System.Windows.Forms;
-#endif
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml.MarkupExtensions;
 using ClipSharp.Core.ClipBoard.Windows;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+#if WINDOWS
+using System.Windows.Forms;
+#endif
+
 
 namespace ClipSharp.Core.ClipBoard;
 

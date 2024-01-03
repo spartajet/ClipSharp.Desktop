@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <OutputType>WinExe</OutputType>
+        <OutputType>Exe</OutputType>
         <TargetFrameworks>net8.0-macos;net8.0-windows</TargetFrameworks>
         <UseWindowsForms Condition="'$(TargetFramework)' == 'net8.0-windows'">true</UseWindowsForms>
         <Platforms Condition="'$(TargetFramework)' == 'net8.0-windows'">x64</Platforms>
