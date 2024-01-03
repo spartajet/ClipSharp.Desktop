@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFrameworks>net8.0-macos</TargetFrameworks>
+        <TargetFrameworks>net8.0-macos;net8.0-windows</TargetFrameworks>
+        <UseWindowsForms Condition="'$(TargetFramework)' == 'net8.0-windows'">true</UseWindowsForms>
+        <Platforms Condition="'$(TargetFramework)' == 'net8.0-windows'">x64</Platforms>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -12,28 +14,6 @@
         
         <RootNamespace>ClipSharp.Core</RootNamespace>
     </PropertyGroup>
-
-    <PropertyGroup>
-        <!--        <DefineConstants>Windows</DefineConstants>-->
-        <!--        <DefineConstants>MacOS</DefineConstants>-->
-        <!--        <DefineConstants>Linux</DefineConstants>-->
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
-        <UseWindowsForms>true</UseWindowsForms>
-<!--        <TargetFramework>net8.0-windows</TargetFramework>-->
-        <Platforms>x64</Platforms>
-    </PropertyGroup>
-
-<!--    <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-macos'">-->
-<!--&lt;!&ndash;        <TargetFramework>net8.0-macos</TargetFramework>&ndash;&gt;-->
-<!--    </PropertyGroup>-->
-
-<!--    <PropertyGroup Condition="$(TargetFramework)' == 'net8.0-macos')">-->
-<!--        <UseWindowsForms>true</UseWindowsForms>-->
-<!--        <TargetFramework>net8.0-linux</TargetFramework>-->
-<!--    </PropertyGroup>-->
-
 
     <ItemGroup>
         <Folder Include="Models\" />
