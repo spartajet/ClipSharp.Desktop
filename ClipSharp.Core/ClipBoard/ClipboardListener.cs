@@ -60,7 +60,7 @@ public class ClipboardListener : IHostedService
 
 #endif
 
-
+    
     // Windows 消息常数
     private const int WM_CLIPBOARDUPDATE = 0x031D;
     private const int WM_DRAWCLIPBOARD = 0x0308;

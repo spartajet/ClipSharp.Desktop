@@ -22,7 +22,7 @@ public class ApplicationHostService : IHostedService
     /// <inheritdoc />
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        bool result = NativeMethods.AddClipboardFormatListener(IntPtr.Zero);
+        // bool result = NativeMethods.AddClipboardFormatListener(IntPtr.Zero);
         this.logger.LogInformation("ClipSharp Started.  {Time:u}", DateTimeOffset.Now);
         return Task.CompletedTask;
     }
