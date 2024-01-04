@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework Condition="$([MSBuild]::IsOSPlatform('osx'))">net8.0</TargetFramework>
+        <TargetFramework Condition="$([MSBuild]::IsOSPlatform('windows'))">net8.0-windows</TargetFramework>
+        <UseWindowsForms Condition="'$(TargetFramework)' == 'net8.0-windows'">true</UseWindowsForms>
+        <Platforms Condition="'$(TargetFramework)' == 'net8.0-windows'">x64;ARM64</Platforms>
+        <Platforms Condition="'$(TargetFramework)' == 'net8.0-maccos'">arm64</Platforms>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
