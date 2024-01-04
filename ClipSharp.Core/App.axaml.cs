@@ -5,6 +5,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using ClipSharp.Core.ClipBoard;
 using ClipSharp.Core.ClipBoard.Windows;
+using ClipSharp.Core.Database;
 using ClipSharp.Core.ViewModels;
 using ClipSharp.Core.Views;
 using Microsoft.Extensions.Configuration;
@@ -15,8 +16,8 @@ using NLog;
 using NLog.Config;
 using NLog.Extensions.Logging;
 using NLog.Targets;
-using LogLevel=NLog.LogLevel;
-
+using SqlSugar;
+using LogLevel = NLog.LogLevel;
 
 
 namespace ClipSharp.Core;
@@ -33,21 +34,47 @@ public partial class App : Application
     public static string LogFolder { get; } = Path.Combine(ClipSharpFolder, "Logs");
 
     private static readonly IHost Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
-                                                  .ConfigureAppConfiguration(c =>
-                                                  {
-                                                      c.SetBasePath(AppContext.BaseDirectory);
-                                                      
-                                                  })
+                                                  .ConfigureAppConfiguration(c => { c.SetBasePath(AppContext.BaseDirectory); })
                                                   .ConfigureServices(
                                                       (host, services) =>
                                                       {
                                                           // App Host
-                                                          
+
                                                           services.AddHostedService<ApplicationHostService>();
                                                           services.AddHostedService<ClipboardService>();
                                                           services.AddHostedService<HotKeyService>();
+                                                          services.AddHostedService<DatabaseService>();
 #if WINDOWS
                                                           services.AddSingleton<HookWindows>();
+                                                          services.AddSingleton<ISqlSugarClient>(s =>
+                                                          {
+                                                              SqlSugarScope sqlSugar =
+                                                                  new(new ConnectionConfig()
+                                                                      {
+                                                                          DbType = DbType.Sqlite,
+                                                                          ConnectionString = $"DataSource={DataBasePath}",
+                                                                          IsAutoCloseConnection = true,
+                                                                          InitKeyType = InitKeyType.Attribute,
+                                                                          MoreSettings = new()
+                                                                          {
+                                                                              SqliteCodeFirstEnableDefaultValue = true //启用默认值
+                                                                          }
+                                                                      },
+                                                                      db =>
+                                                                      {
+                                                                          //每次上下文都会执行
+
+                                                                          //获取IOC对象不要求在一个上下文
+                                                                          //vra log=s.GetService<Log>()
+
+                                                                          //获取IOC对象要求在一个上下文
+                                                                          //var appServive = s.GetService<IHttpContextAccessor>();
+                                                                          //var log= appServive?.HttpContext?.RequestServices.GetService<Log>();
+
+                                                                          db.Aop.OnLogExecuting = (sql, pars) => { };
+                                                                      });
+                                                              return sqlSugar;
+                                                          });
 #endif
                                                           services.AddLogging(loggingBuilder =>
                                                           {
@@ -81,11 +108,10 @@ public partial class App : Application
     public static void Exit()
     {
         Host.StopAsync().Wait();
-        
+
         // Application.Current.
         Host.Dispose();
         Environment.Exit(0);
-        
     }
 
     private static void InitialFolders()
@@ -116,7 +142,7 @@ public partial class App : Application
             FileName = Path.Combine(LogFolder, "Debug.log"),
             ArchiveEvery = FileArchivePeriod.Day,
             ArchiveNumbering = ArchiveNumberingMode.Rolling,
-            ArchiveFileName =Path.Combine(LogFolder, "Debug.{#}.log"),
+            ArchiveFileName = Path.Combine(LogFolder, "Debug.{#}.log"),
             ArchiveDateFormat = "yyyyMMdd",
             MaxArchiveFiles = 7,
             AutoFlush = true
