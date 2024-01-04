@@ -1,17 +1,18 @@
-﻿using ClipSharp.Core.Platform.Windows;
+﻿using System.Windows.Forms;
+using Windows.Win32;
 using Microsoft.Extensions.Logging;
 
-namespace ClipSharp.Core.ClipBoard.Windows;
+namespace ClipSharp.Core.Platform.Windows;
 
 #if WINDOWS
 
-using System.Windows.Forms;
 
 #endif
 
 #if WINDOWS
 public class HookWindows: Form
 {
+    public const int MY_HOTKEY_ID = 1234; // 热键的唯一标识符
     private ILogger<HookWindows> logger;
 
     public HookWindows(ILogger<HookWindows> logger)
@@ -21,13 +22,13 @@ public class HookWindows: Form
 
     protected override void WndProc(ref Message m)
     {
-        switch (m.Msg)
+        switch ((uint)m.Msg)
         {
-            case NativeInvoke.WM_CLIPBOARDUPDATE:
+            case PInvoke.WM_CLIPBOARDUPDATE:
                 this.OnClipboardChanged();
                 break;
-            case  NativeInvoke.WM_HOTKEY:
-                if (m.WParam.ToInt32()==NativeInvoke.MY_HOTKEY_ID)
+            case  PInvoke.WM_HOTKEY:
+                if (m.WParam.ToInt32()==MY_HOTKEY_ID)
                 {
                     this.OnHotKey();
                 }

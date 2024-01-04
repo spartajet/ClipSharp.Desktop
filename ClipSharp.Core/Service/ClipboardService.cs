@@ -1,19 +1,18 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ClipSharp.Core.ClipBoard.Windows;
+using Windows.Win32;
+using Windows.Win32.Foundation;
+using ClipSharp.Core.Platform.Windows;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-#if WINDOWS
-using ClipSharp.Core.Platform.Windows;
-#endif
 
 
-namespace ClipSharp.Core.ClipBoard;
+namespace ClipSharp.Core.Service;
 
 public class ClipboardService : IHostedService
 {
     private readonly ILogger<ClipboardService> logger;
-    
+
 
 #if WINDOWS
     private readonly HookWindows hookWindows;
@@ -34,7 +33,8 @@ public class ClipboardService : IHostedService
     public Task StartAsync(CancellationToken cancellationToken)
     {
 #if WINDOWS
-        NativeInvoke.AddClipboardFormatListener(this.hookWindows.Handle);
+        PInvoke.AddClipboardFormatListener(new(this.hookWindows.Handle));
+
 
         return Task.CompletedTask;
 #else
@@ -47,13 +47,12 @@ public class ClipboardService : IHostedService
     public Task StopAsync(CancellationToken cancellationToken)
     {
 #if WINDOWS
-        NativeInvoke.RemoveClipboardFormatListener(this.hookWindows.Handle);
+        PInvoke.RemoveClipboardFormatListener(new(this.hookWindows.Handle));
         this.logger.LogInformation("Remove Clipboard FormatListener");
         return Task.CompletedTask;
 
 #else
         return Task.CompletedTask;
 #endif
-        
     }
 }

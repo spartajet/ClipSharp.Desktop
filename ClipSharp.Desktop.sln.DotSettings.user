@@ -1,4 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/SourceGeneratedFilesToSkip/=ClipSharp_002ECore_005CMicrosoft_002EWindows_002ECsWin32_005CMicrosoft_002EWindows_002ECsWin32_002ESourceGenerator_005CWindows_002EWin32_002EPInvoke_002Eg_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="\Users\guo\.nuget\packages\avalonia.native\11.0.6\lib\net6.0\Avalonia.Native.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\guoxi\.nuget\packages\avalonia.themes.fluent\11.0.6\lib\net6.0\Avalonia.Themes.Fluent.dll" /&gt;&#xD;
