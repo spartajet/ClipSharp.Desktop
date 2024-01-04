@@ -66,9 +66,6 @@ public class ClipboardListener : IHostedService
     private const int WM_DRAWCLIPBOARD = 0x0308;
     private const int WM_CHANGECBCHAIN = 0x030D;
     private const int WH_KEYBOARD_LL = 13; //键盘 
-
-    /// <inheritdoc />
-    // public event EventHandler? ClipboardUpdated;
     private ILogger<ClipboardListener> logger;
 
     private Task? listenerTask;
@@ -95,33 +92,9 @@ public class ClipboardListener : IHostedService
     {
 #if WINDOWS
         AddClipboardFormatListener(this.hookWindows.Handle);
-        // IntPtr handle = Process.GetCurrentProcess().Handle;
-        // Window window = new Window();
-        // // this._clipboardViewerNext = SetClipboardViewer(handle);
-        // IntPtr h = GetModuleHandle(null);
-        // IntPtr h1 = window.TryGetPlatformHandle()?.Handle ?? IntPtr.Zero;
-        // bool reuslt = AddClipboardFormatListener(h);
-        //
-        // this.hook = SetWindowsHookEx(WM_CLIPBOARDUPDATE, this.MessageOperate, h, 0);
-        //
-        // if (this.hook == IntPtr.Zero)
-        // {
-        //     int error = Marshal.GetLastWin32Error();
-        //     this.logger.LogError("registe clipboard hook error:0x{Error:X}", error);
-        // }
-        //
-        // if (this.hook != IntPtr.Zero)
-        // {
-        //     this.logger.LogInformation("Start Clipboard Listener");
-        // }
-        // else
-        // {
-        //     this.logger.LogError("Start Clipboard Listener Failed");
-        // }
 
         return Task.CompletedTask;
 #else
-
         return Task.CompletedTask;
 #endif
     }
@@ -142,50 +115,21 @@ public class ClipboardListener : IHostedService
         }
 
         return CallNextHookEx(IntPtr.Zero, code, wParam, lParam);
-        ;
     }
 #endif
 
 
     /// <inheritdoc />
-    public async Task StopAsync(CancellationToken cancellationToken)
+    public Task StopAsync(CancellationToken cancellationToken)
     {
 #if WINDOWS
         RemoveClipboardFormatListener(this.hookWindows.Handle);
-        // IntPtr handle = Process.GetCurrentProcess().Handle;
-        // // ChangeClipboardChain(handle, this._clipboardViewerNext);
-        // bool result = RemoveClipboardFormatListener(handle);
-        // if (this.hook != IntPtr.Zero)
-        // {
-        //     UnhookWindowsHookEx(this.hook);
-        //     this.logger.LogInformation("Stop Clipboard Listener");
-        // }
+        this.logger.LogInformation("Remove Clipboard FormatListener");
+        return Task.CompletedTask;
 
-
+#else
+        return Task.CompletedTask;
 #endif
+        
     }
-
-
-    // private class HookWindow: Window
-    // {
-    //     public HookWindow()
-    //     {
-    //         // 监听系统消息
-    //         PlatformImpl.AddSysMessageHook(SystemMessageHook);
-    //     }
-    //
-    //     private void SystemMessageHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam)
-    //     {
-    //         // 检查系统消息是否为 WM_SYSCOMMAND
-    //         if (msg == NativeMethods.WM_SYSCOMMAND)
-    //         {
-    //             // 检查系统命令是否为 SC_CLOSE
-    //             if ((int)wParam == NativeMethods.SC_CLOSE)
-    //             {
-    //                 // 取消关闭窗口
-    //                 CancelClose();
-    //             }
-    //         }
-    //     }
-    // }
 }

@@ -68,23 +68,6 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        // if (this.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-        // {
-        //     desktop.MainWindow = new MainWindow
-        //     {
-        //         DataContext = new MainWindowViewModel(),
-        //     };
-        // }
-        // if (this.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
-        // {
-        //     singleView.MainView = new MainWindow
-        //     {
-        //         DataContext = new MainWindowViewModel(),
-        //     };
-        // }
-        // {
-        //     
-        // }
         Host.StartAsync();
         base.OnFrameworkInitializationCompleted();
     }
@@ -97,7 +80,11 @@ public partial class App : Application
     public static void Exit()
     {
         Host.StopAsync().Wait();
+        
+        // Application.Current.
         Host.Dispose();
+        Environment.Exit(0);
+        
     }
 
     private static void InitialFolders()
