@@ -11,10 +11,15 @@
     <Application.DataTemplates>
         <core:ViewLocator />
     </Application.DataTemplates>
-
+    <Application.Resources>
+        <!-- <FontFamily x:Key="SourceHanSans">Assets/Fonts/SourceHanSans-VF.ttf#Source Han Sans VF</FontFamily> -->
+    </Application.Resources>
     <Application.Styles>
         <FluentTheme DensityStyle="Compact" />
-        <!-- <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" /> -->
+        <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
+        <Style Selector="Window">
+            <Setter Property="FontFamily" Value="Assets/Fonts/msyh.ttf#Microsoft YaHei"/>
+        </Style>
     </Application.Styles>
     <TrayIcon.Icons>
         <TrayIcons>
