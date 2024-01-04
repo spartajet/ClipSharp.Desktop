@@ -44,7 +44,8 @@ public partial class App : Application
                                                           // App Host
                                                           
                                                           services.AddHostedService<ApplicationHostService>();
-                                                          services.AddHostedService<ClipboardListener>();
+                                                          services.AddHostedService<ClipboardService>();
+                                                          services.AddHostedService<HotKeyService>();
 #if WINDOWS
                                                           services.AddSingleton<HookWindows>();
 #endif

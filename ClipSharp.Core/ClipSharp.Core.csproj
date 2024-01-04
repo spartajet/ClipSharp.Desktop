@@ -58,4 +58,11 @@
         </AvaloniaResource>
     </ItemGroup>
 
+
+    <ItemGroup>
+      <Compile Update="Platform\Windows\HookWindows.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

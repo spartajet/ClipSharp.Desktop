@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ClipSharp.Core.Platform.Windows;
+using Microsoft.Extensions.Logging;
 
 namespace ClipSharp.Core.ClipBoard.Windows;
 
@@ -18,16 +19,20 @@ public class HookWindows: Form
         this.logger = logger;
     }
 
-    private const int WM_CLIPBOARDUPDATE = 0x031D;
     protected override void WndProc(ref Message m)
     {
-        // WM_CLIPBOARDUPDATE 消息
-        // const int WM_CLIPBOARDUPDATE = 0x031D;
-
-        if (m.Msg == WM_CLIPBOARDUPDATE)
+        switch (m.Msg)
         {
-            // 剪切板内容发生改变时的处理逻辑
-            OnClipboardChanged();
+            case NativeInvoke.WM_CLIPBOARDUPDATE:
+                this.OnClipboardChanged();
+                break;
+            case  NativeInvoke.WM_HOTKEY:
+                if (m.WParam.ToInt32()==NativeInvoke.MY_HOTKEY_ID)
+                {
+                    this.OnHotKey();
+                }
+                break;
+                
         }
         base.WndProc(ref m);
     }
@@ -37,6 +42,11 @@ public class HookWindows: Form
         this.logger.LogInformation("ClipBoard Update!");
         // 处理剪切板内容变化
         // 例如: string clipboardText = Clipboard.GetText();
+    }
+
+    private void OnHotKey()
+    {
+        this.logger.LogInformation("Hotkey Triggered!");
     }
 
         
