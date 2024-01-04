@@ -14,12 +14,14 @@
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <ApplicationIcon>Assets\Icon\windows\AppIcon.ico</ApplicationIcon>
         <NeutralLanguage>en</NeutralLanguage>
-        <Configurations>Release;Debug</Configurations>
+        <Configurations>Debug;Release</Configurations>
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.clipsharp.core</ApplicationId>
         
         <RootNamespace>ClipSharp.Core</RootNamespace>
+        
+        <Platforms>x64;arm64</Platforms>
     </PropertyGroup>
 
     <ItemGroup>
