@@ -94,6 +94,7 @@ public class HookWindows : Form
 
     private void OnHotKey()
     {
+        
         this.logger.LogInformation("Hotkey Triggered!");
     }
 }

@@ -34,17 +34,18 @@ public partial class App : Application
     public static string ImageFolder { get; } = Path.Combine(ClipSharpFolder, "Images");
     public static string LogFolder { get; } = Path.Combine(ClipSharpFolder, "Logs");
 
-    private static readonly IHost Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
+    private static readonly IHost Host = 
+            Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
                                                   .ConfigureAppConfiguration(c => { c.SetBasePath(AppContext.BaseDirectory); })
                                                   .ConfigureServices(
                                                       (host, services) =>
                                                       {
-                                                          // App Host
-
                                                           services.AddHostedService<ApplicationHostService>();
                                                           services.AddHostedService<ClipboardService>();
                                                           services.AddHostedService<HotKeyService>();
                                                           services.AddHostedService<DatabaseService>();
+                                                          services.AddTransient<Views.DisplayWindow>();
+                                                          services.AddSingleton<DisplayWindowViewModel>();
 #if WINDOWS
                                                           services.AddSingleton<HookWindows>();
                                                           services.AddSingleton<ISqlSugarClient>(s =>
@@ -63,15 +64,6 @@ public partial class App : Application
                                                                       },
                                                                       db =>
                                                                       {
-                                                                          //每次上下文都会执行
-
-                                                                          //获取IOC对象不要求在一个上下文
-                                                                          //vra log=s.GetService<Log>()
-
-                                                                          //获取IOC对象要求在一个上下文
-                                                                          //var appServive = s.GetService<IHttpContextAccessor>();
-                                                                          //var log= appServive?.HttpContext?.RequestServices.GetService<Log>();
-
                                                                           db.Aop.OnLogExecuting = (sql, pars) => { };
                                                                       });
                                                               return sqlSugar;
@@ -171,32 +163,36 @@ public partial class App : Application
 
     private void OpenMainWindowMenuItem_OnClick(object? sender, EventArgs e)
     {
-        switch (this.ApplicationLifetime)
-        {
-            case IClassicDesktopStyleApplicationLifetime desktop:
-                desktop.MainWindow = new MainWindow
-                {
-                    DataContext = new MainWindowViewModel(),
-                };
-                desktop.MainWindow.Show();
-                break;
-            case ISingleViewApplicationLifetime singleView:
-                singleView.MainView = new MainWindow
-                {
-                    DataContext = new MainWindowViewModel(),
-                };
-                // singleView.MainView.
-                break;
-        }
+        // switch (this.ApplicationLifetime)
+        // {
+        //     case IClassicDesktopStyleApplicationLifetime desktop:
+        //         desktop.MainWindow = new MainWindow
+        //         {
+        //             DataContext = new MainWindowViewModel(),
+        //         };
+        //         desktop.MainWindow.Show();
+        //         break;
+        //     case ISingleViewApplicationLifetime singleView:
+        //         singleView.MainView = new MainWindow
+        //         {
+        //             DataContext = new MainWindowViewModel(),
+        //         };
+        //         // singleView.MainView.
+        //         break;
+        // }
     }
 
     private void OpenUserFolderItem_OnClick(object? sender, EventArgs e)
     {
+#if WINDOWS
         Process.Start("explorer.exe", ClipSharpFolder);
+#endif
     }
 
     private void OpenImageFolderItem_OnClick(object? sender, EventArgs e)
     {
+#if WINDOWS
         Process.Start("explorer.exe", ImageFolder);
+#endif
     }
 }
