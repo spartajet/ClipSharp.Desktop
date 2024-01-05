@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using ClipSharp.Core.ClipBoard;
+using ClipSharp.Core.Clip;
 using ClipSharp.Core.Database.Entity;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

@@ -24,6 +24,9 @@
   <data name="OpenFileList" xml:space="preserve">
     <value>Open File List</value>
   </data>
+  <data name="OpenImageFolder" xml:space="preserve">
+    <value>Open Image Folder</value>
+  </data>
   <data name="OpenImageList" xml:space="preserve">
     <value>Open Image List</value>
   </data>
@@ -32,6 +35,9 @@
   </data>
   <data name="OpenTextList" xml:space="preserve">
     <value>Open Text List</value>
+  </data>
+  <data name="OpenUserDataFolder" xml:space="preserve">
+    <value>Open User Data Folder</value>
   </data>
   <data name="Setting" xml:space="preserve">
     <value>Setting</value>

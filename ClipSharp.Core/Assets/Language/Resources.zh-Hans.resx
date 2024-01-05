@@ -24,6 +24,9 @@
   <data name="OpenFileList" xml:space="preserve">
     <value>打开文件列表</value>
   </data>
+  <data name="OpenImageFolder" xml:space="preserve">
+    <value>打开图像文件夹</value>
+  </data>
   <data name="OpenImageList" xml:space="preserve">
     <value>打开图片列表</value>
   </data>
@@ -32,6 +35,9 @@
   </data>
   <data name="OpenTextList" xml:space="preserve">
     <value>打开文本列表</value>
+  </data>
+  <data name="OpenUserDataFolder" xml:space="preserve">
+    <value>打开用户数据文件夹</value>
   </data>
   <data name="Setting" xml:space="preserve">
     <value>设置</value>

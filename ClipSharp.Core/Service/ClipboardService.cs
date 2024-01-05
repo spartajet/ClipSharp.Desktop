@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using ClipSharp.Core.Platform.Windows;
@@ -20,6 +21,15 @@ public class ClipboardService : IHostedService
     {
         this.logger = logger;
         this.hookWindows = hookWindows;
+        this.hookWindows.ClipBoardUpdateAction = (form) =>
+        {
+            
+          
+        };
+        this.hookWindows.HotKeyAction = (form) =>
+        {
+            
+        };
     }
 #else
     public ClipboardListener(ILogger<ClipboardListener> logger)
@@ -55,4 +65,6 @@ public class ClipboardService : IHostedService
         return Task.CompletedTask;
 #endif
     }
+    
+    
 }

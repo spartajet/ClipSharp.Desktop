@@ -1,7 +1,6 @@
-﻿using System;
-using SqlSugar;
+﻿using SqlSugar;
 
-namespace ClipSharp.Core.ClipBoard;
+namespace ClipSharp.Core.Clip;
 
 [SugarTable("DatabaseConfig")]
 public class DatabaseConfig

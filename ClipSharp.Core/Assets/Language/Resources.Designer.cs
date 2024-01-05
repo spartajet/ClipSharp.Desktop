@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 namespace ClipSharp.Core.Assets.Language {
+    using System;
+    
+    
     /// <summary>
     ///   一个强类型的资源类，用于查找本地化的字符串等。
     /// </summary>
@@ -85,6 +88,15 @@ namespace ClipSharp.Core.Assets.Language {
         }
         
         /// <summary>
+        ///   查找类似 Open Image Folder 的本地化字符串。
+        /// </summary>
+        public static string OpenImageFolder {
+            get {
+                return ResourceManager.GetString("OpenImageFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Open Image List 的本地化字符串。
         /// </summary>
         public static string OpenImageList {
@@ -108,6 +120,15 @@ namespace ClipSharp.Core.Assets.Language {
         public static string OpenTextList {
             get {
                 return ResourceManager.GetString("OpenTextList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Open User Data Folder 的本地化字符串。
+        /// </summary>
+        public static string OpenUserDataFolder {
+            get {
+                return ResourceManager.GetString("OpenUserDataFolder", resourceCulture);
             }
         }
         

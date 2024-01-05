@@ -16,7 +16,7 @@
     </Application.Resources>
     <Application.Styles>
         <FluentTheme DensityStyle="Compact" />
-        <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
+        <!-- <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" /> -->
         <Style Selector="Window">
             <Setter Property="FontFamily" Value="Assets/Fonts/msyh.ttf#Microsoft YaHei"/>
         </Style>
@@ -36,6 +36,8 @@
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenFileList}"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="{x:Static assets:Resources.Setting}"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenUserDataFolder}" Click="OpenUserFolderItem_OnClick"></NativeMenuItem>
+                        <NativeMenuItem Header="{x:Static assets:Resources.OpenImageFolder}" Click="OpenImageFolderItem_OnClick"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="{x:Static assets:Resources.Exit}" Click="ExitMenuItem_OnClick"></NativeMenuItem>
                     </NativeMenu>

@@ -1,9 +1,9 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using ClipSharp.Core.ClipBoard;
 using ClipSharp.Core.Database;
 using ClipSharp.Core.Platform.Windows;
 using ClipSharp.Core.Service;
@@ -188,5 +188,15 @@ public partial class App : Application
                 // singleView.MainView.
                 break;
         }
+    }
+
+    private void OpenUserFolderItem_OnClick(object? sender, EventArgs e)
+    {
+        Process.Start("explorer.exe", ClipSharpFolder);
+    }
+
+    private void OpenImageFolderItem_OnClick(object? sender, EventArgs e)
+    {
+        Process.Start("explorer.exe", ImageFolder);
     }
 }
