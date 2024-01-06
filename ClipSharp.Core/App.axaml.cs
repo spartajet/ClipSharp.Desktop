@@ -25,7 +25,8 @@ namespace ClipSharp.Core;
 
 public partial class App : Application
 {
-    public static string ClipSharpFolder { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ClipSharp");
+    public static string ClipSharpFolder { get; } =
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ClipSharp");
 
     public static string ConfigPath { get; } = Path.Combine(ClipSharpFolder, "config.json");
 
@@ -34,50 +35,52 @@ public partial class App : Application
     public static string ImageFolder { get; } = Path.Combine(ClipSharpFolder, "Images");
     public static string LogFolder { get; } = Path.Combine(ClipSharpFolder, "Logs");
 
-    private static readonly IHost Host = 
-            Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
-                                                  .ConfigureAppConfiguration(c => { c.SetBasePath(AppContext.BaseDirectory); })
-                                                  .ConfigureServices(
-                                                      (host, services) =>
-                                                      {
-                                                          services.AddHostedService<ApplicationHostService>();
-                                                          services.AddHostedService<ClipboardService>();
-                                                          services.AddHostedService<HotKeyService>();
-                                                          services.AddHostedService<DatabaseService>();
-                                                          services.AddTransient<Views.DisplayWindow>();
-                                                          services.AddSingleton<DisplayWindowViewModel>();
+    private static readonly IHost Host =
+        Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
+                 .ConfigureAppConfiguration(c => { c.SetBasePath(AppContext.BaseDirectory); })
+                 .ConfigureServices(
+                     (host, services) =>
+                     {
+                         services.AddHostedService<ApplicationHostService>();
+                         services.AddHostedService<ClipboardService>();
+                         services.AddHostedService<HotKeyService>();
+                         services.AddHostedService<DatabaseService>();
+                         services.AddTransient<Views.DisplayWindow>();
+                         services.AddSingleton<DisplayWindowViewModel>();
+                         services.AddTransient<MainWindow>();
+                         services.AddSingleton<MainWindowViewModel>();
+                         services.AddSingleton<Views.MainView>();
+                         services.AddSingleton<MainViewViewModel>();
+                         
 #if WINDOWS
-                                                          services.AddSingleton<HookWindows>();
-                                                          services.AddSingleton<ISqlSugarClient>(s =>
-                                                          {
-                                                              SqlSugarScope sqlSugar =
-                                                                  new(new ConnectionConfig()
-                                                                      {
-                                                                          DbType = DbType.Sqlite,
-                                                                          ConnectionString = $"DataSource={DataBasePath}",
-                                                                          IsAutoCloseConnection = true,
-                                                                          InitKeyType = InitKeyType.Attribute,
-                                                                          MoreSettings = new()
-                                                                          {
-                                                                              SqliteCodeFirstEnableDefaultValue = true //启用默认值
-                                                                          }
-                                                                      },
-                                                                      db =>
-                                                                      {
-                                                                          db.Aop.OnLogExecuting = (sql, pars) => { };
-                                                                      });
-                                                              return sqlSugar;
-                                                          });
+                         services.AddSingleton<HookWindows>();
+                         services.AddSingleton<ISqlSugarClient>(s =>
+                         {
+                             SqlSugarScope sqlSugar =
+                                 new(new ConnectionConfig()
+                                     {
+                                         DbType = DbType.Sqlite,
+                                         ConnectionString = $"DataSource={DataBasePath}",
+                                         IsAutoCloseConnection = true,
+                                         InitKeyType = InitKeyType.Attribute,
+                                         MoreSettings = new()
+                                         {
+                                             SqliteCodeFirstEnableDefaultValue = true //启用默认值
+                                         }
+                                     },
+                                     db => { db.Aop.OnLogExecuting = (sql, pars) => { }; });
+                             return sqlSugar;
+                         });
 #endif
-                                                          services.AddLogging(loggingBuilder =>
-                                                          {
-                                                              loggingBuilder.ClearProviders();
-                                                              loggingBuilder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
-                                                              loggingBuilder.AddNLog();
-                                                          });
-                                                      }
-                                                  )
-                                                  .Build();
+                         services.AddLogging(loggingBuilder =>
+                         {
+                             loggingBuilder.ClearProviders();
+                             loggingBuilder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                             loggingBuilder.AddNLog();
+                         });
+                     }
+                 )
+                 .Build();
 
     public override void Initialize()
     {
@@ -105,6 +108,11 @@ public partial class App : Application
         // Application.Current.
         Host.Dispose();
         Environment.Exit(0);
+    }
+
+    public static T? GetService<T>()
+    {
+        return Host.Services.GetService<T>();
     }
 
     private static void InitialFolders()
@@ -163,23 +171,21 @@ public partial class App : Application
 
     private void OpenMainWindowMenuItem_OnClick(object? sender, EventArgs e)
     {
-        // switch (this.ApplicationLifetime)
-        // {
-        //     case IClassicDesktopStyleApplicationLifetime desktop:
-        //         desktop.MainWindow = new MainWindow
-        //         {
-        //             DataContext = new MainWindowViewModel(),
-        //         };
-        //         desktop.MainWindow.Show();
-        //         break;
-        //     case ISingleViewApplicationLifetime singleView:
-        //         singleView.MainView = new MainWindow
-        //         {
-        //             DataContext = new MainWindowViewModel(),
-        //         };
-        //         // singleView.MainView.
-        //         break;
-        // }
+        MainWindow? mainWindow = GetService<MainWindow>();
+        if (mainWindow == null)
+        {
+            return;
+        }
+        switch (this.ApplicationLifetime)
+        {
+            case IClassicDesktopStyleApplicationLifetime desktop:
+                desktop.MainWindow = mainWindow;
+                desktop.MainWindow.Show();
+                break;
+            case ISingleViewApplicationLifetime singleView:
+                singleView.MainView = mainWindow;
+                break;
+        }
     }
 
     private void OpenUserFolderItem_OnClick(object? sender, EventArgs e)

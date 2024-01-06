@@ -27,7 +27,7 @@
                       ToolTipText="ClipSharp">
                 <TrayIcon.Menu>
                     <NativeMenu>
-                        <NativeMenuItem Header="{x:Static assets:Resources.OpenMainWindow}" Click="OpenMainWindowMenuItem_OnClick" Gesture="Ctrl+Shift+S">
+                        <NativeMenuItem Header="{x:Static assets:Resources.Setting}" Click="OpenMainWindowMenuItem_OnClick" Gesture="Ctrl+Shift+S">
                         </NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenTextList}"></NativeMenuItem>
@@ -35,7 +35,7 @@
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenCodeList}"></NativeMenuItem>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenFileList}"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>
-                        <NativeMenuItem Header="{x:Static assets:Resources.Setting}"></NativeMenuItem>
+                        <!-- <NativeMenuItem Header="{x:Static assets:Resources.Setting}"></NativeMenuItem> -->
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenUserDataFolder}" Click="OpenUserFolderItem_OnClick"></NativeMenuItem>
                         <NativeMenuItem Header="{x:Static assets:Resources.OpenImageFolder}" Click="OpenImageFolderItem_OnClick"></NativeMenuItem>
                         <NativeMenuItemSeparator></NativeMenuItemSeparator>

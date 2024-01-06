@@ -1,0 +1,79 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+             xmlns:viewModels="clr-namespace:ClipSharp.Core.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" x:DataType="viewModels:MainViewViewModel"
+             x:Class="ClipSharp.Core.Views.MainView">
+  <Grid RowDefinitions="Auto,*">
+    <Grid Name="TitleBarHost"
+          ColumnDefinitions="Auto,Auto,*,Auto"
+          Background="Transparent">
+      <Image Grid.Row="0" Margin="12 4"
+             IsHitTestVisible="False"
+             Source="/Assets/Icon/windows/AppIcon.ico"
+             Width="18" Height="18"
+             DockPanel.Dock="Left"
+             Name="WindowIcon"
+             RenderOptions.BitmapInterpolationMode="HighQuality">
+        <Image.IsVisible>
+          <OnPlatform Default="False">
+            <On Options="Windows" Content="True" />
+          </OnPlatform>
+        </Image.IsVisible>
+      </Image>
+
+      <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                 FontSize="12"
+                 IsHitTestVisible="False"
+                 VerticalAlignment="Center"
+                 Grid.Column="1">
+        <TextBlock.IsVisible>
+          <OnPlatform Default="False">
+            <On Options="Windows" Content="True" />
+          </OnPlatform>
+        </TextBlock.IsVisible>
+      </TextBlock>
+
+      <Border Grid.Column="2" Padding="6">
+        <AutoCompleteBox Name="SearchBox"
+                         MaxWidth="500"
+                         Watermark="Search"
+                         Classes="SampleApp"
+                         ValueMemberBinding="{Binding Header, DataType=viewModels:MainViewViewModel}"
+                         ItemsSource="{Binding SearchTerms}">
+          <!--wnd:AppWindow.AllowInteractionInTitleBar="True"-->
+          <AutoCompleteBox.ItemTemplate>
+            <DataTemplate x:DataType="viewModels:MainAppSearchItem">
+              <Panel>
+                <StackPanel HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                  <TextBlock Text="{Binding Header}" />
+                  <TextBlock Text="{Binding Namespace}"
+                             Theme="{StaticResource CaptionTextBlockStyle}"
+                             Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                             FontStyle="Italic"/>
+                </StackPanel>
+              </Panel>
+            </DataTemplate>
+          </AutoCompleteBox.ItemTemplate>
+        </AutoCompleteBox>
+      </Border>
+    </Grid>
+
+    <controls:NavigationView Grid.Row="0" AlwaysShowHeader="False"
+                       PaneDisplayMode="Left"
+                       Grid.RowSpan="2"
+                       Name="NavView"
+                       IsSettingsVisible="False"
+                       IsBackEnabled="{Binding #FrameView.CanGoBack}">
+      <controls:Frame Name="FrameView" />
+    </controls:NavigationView>
+
+    <Panel Name="OverlayHost"
+           Grid.Row="1">
+      <!-- <local:ControlDefinitionOverlay Name="CtrlDefOverlay" /> -->
+    </Panel>
+  </Grid>
+</UserControl>
