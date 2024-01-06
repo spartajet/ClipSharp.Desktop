@@ -16,7 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/;component/Fonts/#Segoe Fluent Icons</FontFamily>
             <tb:TaskbarIcon x:Key="TaskbarIcon"
-                            ToolTipText="ToolTip"
+                            ToolTipText="ClipSharp"
                             IconSource="AppIcon.ico"
                             MenuActivation="LeftOrRightClick"
                             PopupActivation="DoubleClick">

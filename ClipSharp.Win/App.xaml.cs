@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Windows;
 using ClipSharp.Win.Clip;
@@ -75,6 +76,10 @@ public partial class App : Application
                              loggingBuilder.SetMinimumLevel(LogLevel.Trace);
                              loggingBuilder.AddNLog();
                          });
+                         services.AddLocalization(option =>
+                         {
+                             option.ResourcesPath = "Assets/Language";
+                         });
                      }
                  )
                  .Build();
@@ -97,12 +102,20 @@ public partial class App : Application
 
     private async void OnStartup(object sender, StartupEventArgs e)
     {
+        CultureSetting();
         this._taskbar = (TaskbarIcon?)this.FindResource("TaskbarIcon");
         EfficiencyModeUtilities.SetEfficiencyMode(true);
         this._taskbar?.ForceCreate();
         InitialFolders();
         NlogConfig();
+        
         await Host.StartAsync();
+    }
+
+    private static void CultureSetting()
+    {
+        Thread.CurrentThread.CurrentCulture = new("en-US");
+        Thread.CurrentThread.CurrentUICulture = new("en-US");
     }
     
     private static void InitialFolders()
