@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:ClipSharp.Win"
              xmlns:tb="http://www.hardcodet.net/taskbar" 
              xmlns:assets="clr-namespace:ClipSharp.Win.Assets.Language"
-             ShutdownMode="OnExplicitShutdown">
+             ShutdownMode="OnExplicitShutdown" Exit="OnExit" Startup="OnStartup">
     <Application.Resources>
 
         <ResourceDictionary>
