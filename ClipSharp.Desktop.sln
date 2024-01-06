@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClipSharp.Core", "ClipSharp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClipSharp.Test", "ClipSharp.Test\ClipSharp.Test.csproj", "{BCE37F1E-9129-443F-A870-3861912B3C35}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipSharp.Win", "ClipSharp.Win\ClipSharp.Win.csproj", "{DFDCEB77-A549-4921-BC8E-81C91514F3A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|arm64 = Debug|arm64
@@ -31,6 +33,14 @@ Global
 		{BCE37F1E-9129-443F-A870-3861912B3C35}.Release|x64.Build.0 = Release|Any CPU
 		{BCE37F1E-9129-443F-A870-3861912B3C35}.Debug|x64.ActiveCfg = Debug|x64
 		{BCE37F1E-9129-443F-A870-3861912B3C35}.Debug|x64.Build.0 = Debug|x64
+		{DFDCEB77-A549-4921-BC8E-81C91514F3A4}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{DFDCEB77-A549-4921-BC8E-81C91514F3A4}.Debug|arm64.Build.0 = Debug|Any CPU
+		{DFDCEB77-A549-4921-BC8E-81C91514F3A4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DFDCEB77-A549-4921-BC8E-81C91514F3A4}.Debug|x64.Build.0 = Debug|Any CPU
+		{DFDCEB77-A549-4921-BC8E-81C91514F3A4}.Release|arm64.ActiveCfg = Release|Any CPU
+		{DFDCEB77-A549-4921-BC8E-81C91514F3A4}.Release|arm64.Build.0 = Release|Any CPU
+		{DFDCEB77-A549-4921-BC8E-81C91514F3A4}.Release|x64.ActiveCfg = Release|Any CPU
+		{DFDCEB77-A549-4921-BC8E-81C91514F3A4}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
