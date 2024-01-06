@@ -2,10 +2,49 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net8.0-windows</TargetFramework>
+        <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="H.NotifyIcon.Wpf" Version="2.0.124" />
+      <PackageReference Include="WPF-UI" Version="3.0.0-preview.13" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="AppIcon.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Assets\Language\Resources.de-DE.resx" />
+      <Resource Include="Assets\Language\Resources.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </Resource>
+      <Resource Include="Assets\Language\Resources.zh-Hans.resx" />
+      <Resource Include="Assets\Language\Resources.zh-Hant.resx" />
+    </ItemGroup>
+
+<!--    <ItemGroup>-->
+<!--        <AvaloniaResource Update="Assets\Language\Resources.Designer.cs">-->
+<!--            <DesignTime>True</DesignTime>-->
+<!--            <AutoGen>True</AutoGen>-->
+<!--            <DependentUpon>Resources.resx</DependentUpon>-->
+<!--        </AvaloniaResource>-->
+<!--        <AvaloniaResource Update="Assets\Language\Resources.resx">-->
+<!--            <Generator>PublicResXFileCodeGenerator</Generator>-->
+<!--            <LastGenOutput>Resources.Designer.cs</LastGenOutput>-->
+<!--        </AvaloniaResource>-->
+<!--    </ItemGroup>-->
+
+    <ItemGroup>
+      <Compile Update="Assets\Language\Resources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
 
 </Project>
