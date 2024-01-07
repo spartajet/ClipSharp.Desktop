@@ -5,6 +5,8 @@ using System.Windows;
 using ClipSharp.Win.Clip;
 using ClipSharp.Win.Database;
 using ClipSharp.Win.Service;
+using ClipSharp.Win.View;
+using ClipSharp.Win.ViewModel;
 using H.NotifyIcon;
 using H.NotifyIcon.EfficiencyMode;
 using Microsoft.Extensions.Configuration;
@@ -49,10 +51,13 @@ public partial class App : Application
                          // services.AddTransient<Views.DisplayWindow>();
                          // services.AddSingleton<DisplayWindowViewModel>();
                          services.AddTransient<MainWindow>();
+                         services.AddTransient<ClipSelectWindow>();
                          // services.AddSingleton<MainWindowViewModel>();
                          // services.AddSingleton<Views.MainView>();
                          // services.AddSingleton<MainViewViewModel>();
                          services.AddSingleton<HookWindows>();
+
+                         services.AddSingleton<ClipSelectViewModel>();
                          services.AddSingleton<ISqlSugarClient>(s =>
                          {
                              SqlSugarScope sqlSugar =

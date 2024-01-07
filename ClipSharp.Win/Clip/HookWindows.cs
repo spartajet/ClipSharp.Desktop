@@ -12,12 +12,12 @@ namespace ClipSharp.Win.Clip;
 #if WINDOWS
 public class HookWindows : Form
 {
-    public const int MY_HOTKEY_ID = 1234; // 热键的唯一标识符
+    public const int DISPLAY_CLIP_SELECT_HOTKEY_ID = 1234; // 热键的唯一标识符
     private readonly ILogger<HookWindows> logger;
     private readonly ISqlSugarClient db;
 
     // public Action<Window>? ClipBoardUpdateAction { get; set; }
-    // public Action<Window>? HotKeyAction { get; set; }
+    public Action? HotKeyAction { get; set; }
 
     public HookWindows(ILogger<HookWindows> logger, ISqlSugarClient db)
     {
@@ -36,10 +36,10 @@ public class HookWindows : Form
                 // this.ClipBoardUpdateAction?.Invoke(this);
                 break;
             case PInvoke.WM_HOTKEY:
-                if (m.WParam.ToInt32() == MY_HOTKEY_ID)
+                if (m.WParam.ToInt32() == DISPLAY_CLIP_SELECT_HOTKEY_ID)
                 {
                     this.OnHotKey();
-                    // this.HotKeyAction?.Invoke(this);
+                    this.HotKeyAction?.Invoke();
                 }
                 break;
         }
