@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using ClipSharp.Core.Clip;
+using ClipSharp.Win.Clip;
 using ClipSharp.Win.Database.Entity;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

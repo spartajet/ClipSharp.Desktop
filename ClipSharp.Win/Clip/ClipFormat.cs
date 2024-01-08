@@ -1,4 +1,4 @@
-﻿namespace ClipSharp.Core.Clip;
+﻿namespace ClipSharp.Win.Clip;
 
 public enum ClipFormat
 {

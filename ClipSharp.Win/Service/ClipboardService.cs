@@ -43,9 +43,10 @@ public class ClipboardService : IHostedService
     /// <inheritdoc />
     public Task StartAsync(CancellationToken cancellationToken)
     {
-
+        
         PInvoke.AddClipboardFormatListener(new(this.hookWindows.Handle));
-
+        
+        
 
         return Task.CompletedTask;
     }

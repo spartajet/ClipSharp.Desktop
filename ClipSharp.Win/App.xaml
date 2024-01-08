@@ -13,6 +13,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemesDictionary Theme="Light" />
                 <ui:ControlsDictionary />
+                <ResourceDictionary Source="Assets/Template/DisplayDataTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Assets/Template/Colors.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/;component/Fonts/#Segoe Fluent Icons</FontFamily>
             <tb:TaskbarIcon x:Key="TaskbarIcon"

@@ -1,6 +1,6 @@
 ﻿using SqlSugar;
 
-namespace ClipSharp.Core.Clip;
+namespace ClipSharp.Win.Clip;
 
 [SugarTable("DatabaseConfig")]
 public class DatabaseConfig

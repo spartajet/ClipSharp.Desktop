@@ -4,9 +4,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:ClipSharp.Win.View"
-        mc:Ignorable="d"
-        Title="ClipSelectWindow" Height="450" Width="800" ResizeMode="NoResize" WindowState="Normal" WindowStartupLocation="CenterScreen" PreviewKeyDown="ClipSelectWindow_OnPreviewKeyDown">
-    <Grid>
-        
+        mc:Ignorable="d" WindowStyle="None"
+        Title="ClipSelectWindow" Height="450" Width="800" ResizeMode="NoResize" WindowState="Normal" WindowStartupLocation="CenterScreen" PreviewKeyDown="ClipSelectWindow_OnPreviewKeyDown" Loaded="ClipSelectWindow_OnLoaded">
+    <Grid Margin="3">
+        <ListView>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+                        <StackPanel Orientation="Horizontal"></StackPanel>
+                    </ScrollViewer>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
     </Grid>
 </Window>

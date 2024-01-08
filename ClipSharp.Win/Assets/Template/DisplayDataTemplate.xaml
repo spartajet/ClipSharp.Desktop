@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:display="clr-namespace:ClipSharp.Win.Display">
+    <display:DisplayDataTemplateSelector x:Key="DisplayDataTemplateSelector">
+
+        <display:DisplayDataTemplateSelector.TextTemplate>
+            <DataTemplate DataType="{x:Type display:ClipDisplayText}">
+                <Border CornerRadius="2" BorderBrush="{StaticResource Fluent.Ribbon.Brushes.AccentBaseColorBrush}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Text}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        <TextBlock Grid.Row="1" Text="{Binding DateTime}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </display:DisplayDataTemplateSelector.TextTemplate>
+    </display:DisplayDataTemplateSelector>
+    <Style x:Key="DisplayGridStyle" TargetType="Grid">
+        <Setter Property="Width" Value="300"></Setter>
+        <Setter Property="Height" Value="300"></Setter>
+        <Setter Property="Margin" Value="3"></Setter>
+    </Style>
+</ResourceDictionary>
