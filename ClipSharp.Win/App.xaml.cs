@@ -38,7 +38,7 @@ public partial class App : Application
     public static string DataBasePath { get; } = Path.Combine(ClipSharpFolder, "ClipSharp.db");
     public static string ImageFolder { get; } = Path.Combine(ClipSharpFolder, "Images");
     public static string LogFolder { get; } = Path.Combine(ClipSharpFolder, "Logs");
-    
+
     private static readonly IHost Host =
         Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
                  .ConfigureAppConfiguration(c => { c.SetBasePath(AppContext.BaseDirectory); })
@@ -48,15 +48,12 @@ public partial class App : Application
                          services.AddHostedService<ClipboardService>();
                          services.AddHostedService<HotKeyService>();
                          services.AddHostedService<DatabaseService>();
-                         // services.AddTransient<Views.DisplayWindow>();
-                         // services.AddSingleton<DisplayWindowViewModel>();
+
                          services.AddTransient<MainWindow>();
                          services.AddTransient<ClipSelectWindow>();
-                         // services.AddSingleton<MainWindowViewModel>();
-                         // services.AddSingleton<Views.MainView>();
-                         // services.AddSingleton<MainViewViewModel>();
-                         services.AddSingleton<HookWindows>();
 
+                         services.AddSingleton<HookWindows>();
+                         services.AddSingleton<MainWindowViewModel>();
                          services.AddSingleton<ClipSelectViewModel>();
                          services.AddSingleton<ISqlSugarClient>(s =>
                          {
@@ -88,7 +85,7 @@ public partial class App : Application
                      }
                  )
                  .Build();
-    
+
     /// <summary>
     /// Gets registered service.
     /// </summary>
@@ -101,7 +98,7 @@ public partial class App : Application
 
     private async void OnExit(object sender, ExitEventArgs e)
     {
-        await  Host.StopAsync();
+        await Host.StopAsync();
         Host.Dispose();
     }
 
@@ -113,7 +110,7 @@ public partial class App : Application
         this._taskbar?.ForceCreate();
         InitialFolders();
         NlogConfig();
-        
+
         await Host.StartAsync();
     }
 
@@ -122,7 +119,7 @@ public partial class App : Application
         Thread.CurrentThread.CurrentCulture = new("en-US");
         Thread.CurrentThread.CurrentUICulture = new("en-US");
     }
-    
+
     private static void InitialFolders()
     {
         if (!Directory.Exists(ClipSharpFolder))

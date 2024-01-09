@@ -4,15 +4,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:ClipSharp.Win.View"
-        mc:Ignorable="d" WindowStyle="None"
-        Title="ClipSelectWindow" Height="450" Width="800" ResizeMode="NoResize" WindowState="Normal" WindowStartupLocation="CenterScreen" PreviewKeyDown="ClipSelectWindow_OnPreviewKeyDown" Loaded="ClipSelectWindow_OnLoaded">
-    <Grid Margin="3">
-        <ListView>
+        mc:Ignorable="d" WindowStyle="None" 
+        Title="ClipSelectWindow" Height="340" Width="800" ResizeMode="NoResize" WindowState="Normal" WindowStartupLocation="CenterScreen" PreviewKeyDown="ClipSelectWindow_OnPreviewKeyDown" Loaded="ClipSelectWindow_OnLoaded" LostFocus="ClipSelectWindow_OnLostFocus" Deactivated="ClipSelectWindow_OnDeactivated">
+    <Grid Margin="3" >
+        <ListView ItemsSource="{Binding ClipDisplayData}" ItemTemplateSelector="{StaticResource DisplayDataTemplateSelector}" ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectedIndex="0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
-                        <StackPanel Orientation="Horizontal"></StackPanel>
-                    </ScrollViewer>
+                    <WrapPanel/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>

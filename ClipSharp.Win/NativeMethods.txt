@@ -36,4 +36,6 @@ RegisterClipboardFormat
 RemoveClipboardFormatListener
 SetClipboardData
 SetClipboardViewer
+GetMonitorInfo
+EnumDisplayMonitors
  

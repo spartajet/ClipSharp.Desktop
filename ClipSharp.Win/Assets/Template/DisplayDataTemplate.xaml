@@ -1,12 +1,24 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:display="clr-namespace:ClipSharp.Win.Display">
+                    xmlns:tools="clr-namespace:ClipSharp.Win.Tools"
+                    xmlns:display="clr-namespace:ClipSharp.Win.Display"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+    <Style x:Key="DisplayGridStyle" TargetType="Grid">
+        <Setter Property="Width" Value="300"></Setter>
+        <Setter Property="Height" Value="300"></Setter>
+        <Setter Property="Margin" Value="3"></Setter>
+    </Style>
+    <Style x:Key="DisplayBorderStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10"></Setter>
+        <Setter Property="BorderThickness" Value="4"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource Fluent.Ribbon.Brushes.AccentBaseColorBrush}"></Setter>
+        <Setter Property="Margin" Value="1.5,3,1.5,3"></Setter>
+    </Style>
     <display:DisplayDataTemplateSelector x:Key="DisplayDataTemplateSelector">
-
         <display:DisplayDataTemplateSelector.TextTemplate>
-            <DataTemplate DataType="{x:Type display:ClipDisplayText}">
-                <Border CornerRadius="2" BorderBrush="{StaticResource Fluent.Ribbon.Brushes.AccentBaseColorBrush}">
-                    <Grid>
+            <DataTemplate DataType="{x:Type display:ClipDisplayData}">
+                <Border Style="{StaticResource DisplayBorderStyle}">
+                    <Grid Style="{StaticResource DisplayGridStyle}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="20"></RowDefinition>
@@ -17,10 +29,63 @@
                 </Border>
             </DataTemplate>
         </display:DisplayDataTemplateSelector.TextTemplate>
+        <display:DisplayDataTemplateSelector.RichTextTemplate>
+            <DataTemplate DataType="{x:Type display:ClipDisplayData}">
+                <Border Style="{StaticResource DisplayBorderStyle}">
+                    <Grid Style="{StaticResource DisplayGridStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <!-- <RichTextBox Grid.Row="0" tools:RichTextBoxHelper.DocumentXaml="{Binding Text}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" /> -->
+                        <xctk:RichTextBox Grid.Row="0" Text="{Binding Text }" IsEnabled="False"
+                                             ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                        <TextBlock Grid.Row="1" Text="{Binding DateTime}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </display:DisplayDataTemplateSelector.RichTextTemplate>
+        <display:DisplayDataTemplateSelector.HtmlTemplate>
+            <DataTemplate DataType="{x:Type display:ClipDisplayData}">
+                <Border Style="{StaticResource DisplayBorderStyle}">
+                    <Grid Style="{StaticResource DisplayGridStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <xctk:RichTextBox Grid.Row="0" Text="{Binding Text }" ScrollViewer.VerticalScrollBarVisibility="Auto" IsEnabled="False"/>
+                        <TextBlock Grid.Row="1" Text="{Binding DateTime}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </display:DisplayDataTemplateSelector.HtmlTemplate>
+        <display:DisplayDataTemplateSelector.ImageTemplate>
+            <DataTemplate DataType="{x:Type display:ClipDisplayData}">
+                <Border Style="{StaticResource DisplayBorderStyle}">
+                    <Grid Style="{StaticResource DisplayGridStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="{Binding Image}"></Image>
+                        <TextBlock Grid.Row="1" Text="{Binding DateTime}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </display:DisplayDataTemplateSelector.ImageTemplate>
+        <display:DisplayDataTemplateSelector.FileDropListTemplate>
+            <DataTemplate DataType="{x:Type display:ClipDisplayData}">
+                <Border Style="{StaticResource DisplayBorderStyle}">
+                    <Grid Style="{StaticResource DisplayGridStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="{Binding FilePaths}"></TextBlock>
+                        <TextBlock Grid.Row="1" Text="{Binding DateTime}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </display:DisplayDataTemplateSelector.FileDropListTemplate>
     </display:DisplayDataTemplateSelector>
-    <Style x:Key="DisplayGridStyle" TargetType="Grid">
-        <Setter Property="Width" Value="300"></Setter>
-        <Setter Property="Height" Value="300"></Setter>
-        <Setter Property="Margin" Value="3"></Setter>
-    </Style>
 </ResourceDictionary>
