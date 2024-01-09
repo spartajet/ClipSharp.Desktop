@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Text.Json;
-using AvaloniaEdit.Utils;
 using ClipSharp.Win.Database.Entity;
 using ClipSharp.Win.Display;
+using ClipSharp.Win.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Extensions.Logging;
 using SqlSugar;
