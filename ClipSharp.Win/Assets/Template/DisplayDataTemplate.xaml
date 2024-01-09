@@ -23,7 +23,7 @@
                             <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="20"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Text}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Text}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  />
                         <TextBlock Grid.Row="1" Text="{Binding DateTime}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Grid>
                 </Border>

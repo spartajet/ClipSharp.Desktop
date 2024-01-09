@@ -4,15 +4,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:ClipSharp.Win.View"
-        mc:Ignorable="d" WindowStyle="None" 
+        mc:Ignorable="d" WindowStyle="None"
         Title="ClipSelectWindow" Height="340" Width="800" ResizeMode="NoResize" WindowState="Normal" WindowStartupLocation="CenterScreen" PreviewKeyDown="ClipSelectWindow_OnPreviewKeyDown" Loaded="ClipSelectWindow_OnLoaded" LostFocus="ClipSelectWindow_OnLostFocus" Deactivated="ClipSelectWindow_OnDeactivated">
-    <Grid Margin="3" >
-        <ListView ItemsSource="{Binding ClipDisplayData}" ItemTemplateSelector="{StaticResource DisplayDataTemplateSelector}" ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectedIndex="0">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-        </ListView>
-    </Grid>
+    <ListView Name="HistoryListView" ItemsSource="{Binding ClipDisplayData}" ItemTemplateSelector="{StaticResource DisplayDataTemplateSelector}" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+        <ListView.Resources>
+            <Style TargetType="ListView">
+                <Style.Triggers>
+                    <Trigger Property="IsFocused" Value="True">
+                        <Setter Property="Background" Value="Red"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="ListViewItem">
+                <Style.Triggers>
+                    <!-- 当 ListViewItem 被选中时 -->
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="Red" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ListView.Resources>
+        <ListView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <WrapPanel />
+            </ItemsPanelTemplate>
+        </ListView.ItemsPanel>
+    </ListView>
 </Window>

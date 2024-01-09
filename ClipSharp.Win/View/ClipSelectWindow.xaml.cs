@@ -21,10 +21,20 @@ public partial class ClipSelectWindow : Window
         this.model = model;
         this.logger = logger;
         this.InitializeComponent();
-        this.Loaded += (_, _) => this.DataContext = model;
+        this.Loaded += (_, _) =>
+        {
+            this.DataContext = model;
+        };
+        this.ContentRendered += (_, _) =>
+        {
+
+            this.HistoryListView.SelectedIndex = 0;
+            System.Windows.Controls.ListViewItem firstItem = (System.Windows.Controls.ListViewItem)this.HistoryListView.ItemContainerGenerator.ContainerFromIndex(0);
+
+            firstItem.Focus();
+        };
     }
-    
-    
+
 
     private void ClipSelectWindow_OnPreviewKeyDown(object sender, KeyEventArgs e)
     {
@@ -38,6 +48,7 @@ public partial class ClipSelectWindow : Window
     private void ClipSelectWindow_OnLoaded(object sender, RoutedEventArgs e)
     {
         this.ReSizeWindow();
+
     }
 
     private void ReSizeWindow()
