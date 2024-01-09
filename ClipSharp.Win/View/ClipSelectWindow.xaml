@@ -25,6 +25,11 @@
                 </Style.Triggers>
             </Style>
         </ListView.Resources>
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <EventSetter Event="PreviewKeyDown" Handler="DisplayItem_KeyDown"/>
+            </Style>
+        </ListView.ItemContainerStyle>
         <ListView.ItemsPanel>
             <ItemsPanelTemplate>
                 <WrapPanel />
